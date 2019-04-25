@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/customer-recognition/customer-recognition/issues"
   },
-  "homepage": "https://github.com/customer-recognition/customer-recognition#readme"
+  "homepage": "https://github.com/customer-recognition/customer-recognition#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.17.1",
+    "sequelize": "^5.7.5"
+  }
 }
