@@ -1,1 +1,41 @@
+workbench.action.files.saveWithoutFormatting
+
 <h1>{{customer}}</h1>
+
+
+<h2>You are a good customer!</h2>
+
+<ul>
+    {{#each customer}}
+    {{#unless item}}
+    {{> amazing customer = false}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>You are an AMAZING CUSTOMER!</h2>
+
+<ul>
+    {{#each customer}}
+    {{#if item}}
+    {{> amazing customer = false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+{{!-- <h2>Add an item(s) </h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="customer"> Name:</label>
+    <input type="text" id="customer" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="item">item?</label><br>
+    <input type="radio" name="sleepy" value="2" checked> Sleepy!<br>
+    <input type="radio" name="sleepy" value="1"> Awake
+  </div>
+
+  <button type="submit">Add item(s)</button>
+</form> --}}
