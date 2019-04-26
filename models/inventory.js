@@ -1,17 +1,17 @@
-// customer
+// inventory of what the store has
 
 module.exports = function (sequelize, DataTypes) {
-    var Customer = sequelize.define('Customer', {
-        name: {
+    var Inventory = sequelize.define('Inventory', {
+        item: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        orders: {
-            type: DataTypes.STRING,
+        price: {
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false
         }
     }, {
             timestamps: false
         });
-    return Customer;
+    return Inventory;
 }
