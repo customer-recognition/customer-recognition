@@ -8,3 +8,10 @@ CREATE TABLE inventory (
     price INTEGER,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE customer (
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(50),
+    orders VARCHAR(50);
+    PRIMARY KEY(id);
+);
