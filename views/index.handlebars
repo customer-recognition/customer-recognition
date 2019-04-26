@@ -1,13 +1,11 @@
-<h1>{{customer}}</h1>
+<h1>Customer</h1>
 
 
 <h2>You are a good customer!</h2>
 
 <ul>
     {{#each customer}}
-    {{#unless item}}
-    {{> amazing customer = false}}
-    {{/unless}}
+    {{name}}
     {{/each}}
 </ul>
 <h2>You are an AMAZING CUSTOMER!</h2>

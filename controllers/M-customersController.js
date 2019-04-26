@@ -4,15 +4,29 @@ var router = express.Router();
 var db = require('../models');
 
 // Data of all customers
+// router.get('/', function (req, res) {
+//   db.Customer.findAll({}).then(function (data) {
+//     res.json(data);
+//   }).catch(function (err) {
+//     console.log(err);
+//     res.send(500);
+//   });
+// });
+
+// Customer information
 router.get('/', function (req, res) {
   db.Customer.findAll({}).then(function (data) {
-    res.json(data);
-    console.log(data)
+    var hbsObject = {
+      customer: data
+    };
+    res.render('index', hbsObject);
+    console.log(hbsObject)
   }).catch(function (err) {
     console.log(err);
     res.send(500);
   });
 });
+
 
 //  //  //  //
 router.get('/', function (req, res) {
