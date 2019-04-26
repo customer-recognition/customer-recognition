@@ -10,7 +10,6 @@ router.get('/', function (req, res) {
       customer: data
     };
     res.render('index', hbsObject);
-    console.log(hbsObject)
   }).catch(function (err) {
     console.log(err);
     res.send(500);
@@ -20,12 +19,16 @@ router.get('/', function (req, res) {
 router.get("/api/customer/:id", function(req, res){
   db.Customer.findAll({
     where: {
-      id : req.params.id
+      id: req.params.id
     }
-  }).then(function(result){
-    res.json(result)
-  }).catch(err => {
-    console.log(err.message);
+  }).then(function (data){
+    console.log(req.params.id);
+    var hbsObject = {
+      customer: data
+    };
+    res.render("index", hbsObject);
+  }).catch(function(err){
+    console.log(err);
     res.send(500);
   });
 });
