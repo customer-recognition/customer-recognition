@@ -1,20 +1,13 @@
 <h1>Customer</h1>
 
-
 <h2>You are a good customer!</h2>
-
 <ul>
   {{#each customer}}
-  <form class="hello">
-    {{name}} <input class="customerid" data-customerid="{{id}}" type="submit" value="View Customer"><br>
+  <form action="/customer/{{id}}">
+    {{name}} <input type="submit" value="View Customer"> <br>
   </form>
   {{/each}}
-</ul>
-<h2>You are an AMAZING CUSTOMER!</h2>
 
-<script>
-  $(".customerid").click(function (event) {
-    var selectedCustomer = $(this).attr("data-customerid");
-    console.log(selectedCustomer);
-  })
-</script>
+</ul>
+
+<h2>You are an AMAZING CUSTOMER!</h2>
