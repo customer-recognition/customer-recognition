@@ -1,13 +1,42 @@
 <h1>Customer</h1>
 
-<h2>You are a good customer!</h2>
+<div class="customer">
+</div>
+<div class="favorite">
+</div>
+
 <ul>
   {{#each customer}}
-  <form action="/customer/{{id}}">
-    {{name}} <input type="submit" value="View Customer"> <br>
-  </form>
+  {{name}} <input class="view-customer" type="submit" data-name="{{name}}" data-orders="{{orders}}"
+    value="View Customer"> <br>
   {{/each}}
 
 </ul>
 
-<h2>You are an AMAZING CUSTOMER!</h2>
+<form class="add-food">
+  <input type="text" id="food" name="order">
+  <button type="submit">Add Food</button>
+</form>
+
+<script>
+  var food = [];
+  $(document).ready(function () {
+    $(".view-customer").click(function (event) {
+      $(".customer").html("<strong>Customer:</strong> <br>" + $(this).data("name"));
+      $(".favorite").html("<strong>Favorite Food(s):</strong> <br>" + $(this).data("orders"));
+    });
+    $(".add-food").on("submit", function (event) {
+      event.preventDefault();
+      var id = "3";
+      var newOrder = {
+        order: $("#food").val().trim()
+      };
+      $.ajax("/api/customer",{
+        type: "PUT",
+        data: newOrder
+      }).then(function(){
+        location.reload();
+      })
+    })
+  });
+</script>
