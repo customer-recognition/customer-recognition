@@ -50,4 +50,19 @@ ct.fillRect(825, 110, 75, 75);
 ct.fillRect(825, 210, 75, 75);
 ct.fillRect(825, 310, 75, 75);
 
-console.log(canvas)
+
+
+$("#t1").click(function(){
+    alert('Testing, table 1');
+    console.log('testing, table 1')
+  });
+
+  $("#t2").click(function(){
+    alert('Testing, table 2');
+    console.log('testing, table 2')
+  });
+
+  $("#t3").click(function(){
+    alert('Testing, table 3');
+    console.log('testing, table 3')
+  });
