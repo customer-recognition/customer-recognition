@@ -1,29 +1,42 @@
 {{!-- <h1>{{customer}}</h1> --}}
 
-
-<h2>You are a good customer!</h2>
+<div class="customer">
+</div>
+<div class="favorite">
+</div>
 
 <ul>
-    {{#each customer}}
-    {{name}}: {{orders}} <br>
-    {{/each}}
+  {{#each customer}}
+  {{name}} <input class="view-customer" type="submit" data-name="{{name}}" data-orders="{{orders}}"
+    value="View Customer"> <br>
+  {{/each}}
+
 </ul>
-<h2>You are an AMAZING CUSTOMER!</h2>
 
+<form class="add-food">
+  <input type="text" id="food" name="order">
+  <button type="submit">Add Food</button>
+</form>
 
-{{!-- <h2>Add an item(s) </h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="customer"> Name:</label>
-    <input type="text" id="customer" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="item">item?</label><br>
-    <input type="radio" name="sleepy" value="2" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="1"> Awake
-  </div>
-
-  <button type="submit">Add item(s)</button>
-</form> --}}
+<script>
+  var food = [];
+  $(document).ready(function () {
+    $(".view-customer").click(function (event) {
+      $(".customer").html("<strong>Customer:</strong> <br>" + $(this).data("name"));
+      $(".favorite").html("<strong>Favorite Food(s):</strong> <br>" + $(this).data("orders"));
+    });
+    $(".add-food").on("submit", function (event) {
+      event.preventDefault();
+      var id = "3";
+      var newOrder = {
+        order: $("#food").val().trim()
+      };
+      $.ajax("/api/customer",{
+        type: "PUT",
+        data: newOrder
+      }).then(function(){
+        location.reload();
+      })
+    })
+  });
+</script>
