@@ -1,11 +1,7 @@
 var db = require("../models");
-var userID = require("./auth/userID")
 
 module.exports = function (app) {
-    app.post("/api/login", userID.authenticate("local"), function (req, res) {
-        res.json("/members");
-    });
-    app.put("/api/customer", function (req, res) {
+app.put("/api/customer", function (req, res) {
         db.Customer.findAll({
             where: {
                 id: "3"
