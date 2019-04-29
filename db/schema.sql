@@ -4,18 +4,20 @@ USE restaurant_db;
 
 CREATE TABLE customers
 (
-    ID SERIAL PRIMARY KEY,
+    ID INT NOT NULL AUTO_INCREMENT,
     customer_name VARCHAR(256),
-    customer_purchases INT
+    customer_purchases INT,
+    PRIMARY KEY(ID)
 );
 
 CREATE TABLE orders
 (
-    ID SERIAL PRIMARY KEY,
+    ID INT NOT NULL AUTO_INCREMENT,
     order_name VARCHAR(256),
     order_price INT,
-    order_customer INT
-        FOREIGN KEY (order_customer) REFERENCES customers(ID)
+    order_customer INT,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(order_customer) REFERENCES customers(ID)
 );
 
 CREATE TABLE users
