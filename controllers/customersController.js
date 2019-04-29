@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var db = require('../models');
+var db = require('../models/customer.js');
 
 // Customer information
 router.get('/', function (req, res) {
