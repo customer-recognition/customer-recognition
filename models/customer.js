@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         orders: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         }
     }, {
             timestamps: false
