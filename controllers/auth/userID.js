@@ -1,9 +1,9 @@
-var customerID = require("customerID");
-var LocalStrategy = require("customerID-local").Strategy;
+var userID = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
-var db = require("../models");
+var db = require("../../models");
 
-customerID.use(new LocalStrategy(
+userID.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
     usernameField: "email"
@@ -27,6 +27,7 @@ customerID.use(new LocalStrategy(
           message: "Incorrect password."
         });
       }
+      console.log("correct log in!");
       // If none of the above, return the user
       return done(null, dbUser);
     });
@@ -36,13 +37,13 @@ customerID.use(new LocalStrategy(
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
-customerID.serializeUser(function (user, cb) {
+userID.serializeUser(function (user, cb) {
   cb(null, user);
 });
 
-customerID.deserializeUser(function (obj, cb) {
+userID.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
 
 // Exporting our configured customer ID
-module.exports = customerID;
+module.exports = userID;
