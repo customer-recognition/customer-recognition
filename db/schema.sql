@@ -6,7 +6,7 @@ CREATE TABLE customers
 (
     ID SERIAL PRIMARY KEY,
     customer_name VARCHAR(256),
-    customer_purchases INT,
+    customer_purchases INT
 );
 
 CREATE TABLE orders
@@ -14,13 +14,13 @@ CREATE TABLE orders
     ID SERIAL PRIMARY KEY,
     order_name VARCHAR(256),
     order_price INT,
-    order_customer INT,
-    FOREIGN KEY (order_customer) REFERENCES customers(ID)
+    order_customer INT
+        FOREIGN KEY (order_customer) REFERENCES customers(ID)
 );
 
 CREATE TABLE users
 (
     ID SERIAL PRIMARY KEY,
     username VARCHAR(256),
-    PASSWORD VARCHAR(256),
+    PASSWORD VARCHAR(256)
 );
