@@ -32,10 +32,11 @@
     $(".add-food").on("submit", function (event) {
       event.preventDefault();
       var newOrder = {
-        order: $("#food").val().trim()
+        CustomerId: 1,
+        OrderId: $("#food").val().trim()
       };
       $.ajax("/api/customer", {
-        type: "PUT",
+        type: "POST",
         data: newOrder
       }).then(function () {
         location.reload();
