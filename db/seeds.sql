@@ -1,13 +1,7 @@
+INSERT INTO customers(customer_name) VALUE("QT");
+INSERT INTO customers(customer_name) VALUE("DK");
+INSERT INTO customers(customer_name) VALUE("MD");
 
-INSERT INTO users
-    (email, password)
-VALUES
-    (dykim61@gmail.com, youbin123);
-INSERT INTO users
-    (email, password)
-VALUES
-    (qt@gmail.com, youbin123);
-INSERT INTO users
-    (email, password)
-VALUES
-    (mymy@gmail.com, youbin123);
+INSERT INTO orders(order_name) VALUE("Hamburger");
+INSERT INTO orders(order_name) VALUE("Pizza");
+INSERT INTO orders(order_name) VALUE("Spaghetti");
