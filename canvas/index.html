@@ -44,9 +44,23 @@
 
         </div>
 
-        <div class="info">
-            <h1>Customer Information</h1> <hr>
-            
+        <div class="step_one">
+            Is this a new customer or returning customer? <br>
+            <button id="new-customer">New Customer</button> <br>
+            <button id="customer-data">Returning Customer</button>
+        </div>
+
+        <div class="new_customer">
+            <h1>Add Information</h1>
+            <button class="back">[Go back]</button>
+            <hr>
+
+        </div>
+
+        <div class="customer_data">
+            <h1>Customer Information</h1>
+            <button class="back">[Go back]</button>
+            <hr>
         </div>
 
     </div>
@@ -72,10 +86,32 @@
 
     <script>
 
+        // The side div doesn't show until you click on a table
+        $(".step_one").hide();
+        $(".new_customer").hide();
+        $(".customer_data").hide();
+
+        // When you click on a table the first part asking if it is a new customer or returning customer 
         $(".table").click(function () {
-            alert('Testing, tables');
-            console.log('testing, tables')
+            $(".step_one").show();
         });
+
+        // If user accidentally presses the wrong button, this allows them to start over
+        $(".back").click(function () {
+            $(".new_customer").hide();
+            $(".customer_data").hide();
+            $(".step_one").show();
+        })
+
+        // These two divs show different paths we may need to do
+        $("#new-customer").click(function () {
+            $(".new_customer").show();
+        });
+
+        $("#customer-data").click(function () {
+            $(".customer_data").show();
+        });
+
 
     </script>
 </body>

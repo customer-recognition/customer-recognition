@@ -45,7 +45,7 @@ nav {
     border-radius: 5%;
 }
 
-.info {
+.step_one, .new_customer, .customer_data {
     position: absolute;
     width: 500px;
     height: 500px;
