@@ -10,7 +10,6 @@
   {{customer_name}} <input class="view-customer" type="submit" data-name="{{customer_name}}"
     data-orders="{{customer_purchases}}" value="View Customer"> <br>
   {{/each}}
-
 </ul>
 
 <form class="add-food">
@@ -23,7 +22,6 @@
 </form>
 
 <script>
-  var food = [];
   $(document).ready(function () {
     $(".view-customer").click(function (event) {
       $(".customer").html("<strong>Customer:</strong> <br>" + $(this).data("name"));

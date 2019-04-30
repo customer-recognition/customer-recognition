@@ -8,7 +8,7 @@ module.exports = function (app) {
                     customer: data,
                     order: data2
                 }
-                res.render("QT-index", hbsObject);
+                res.render("index", hbsObject);
             })
         }).catch(function (err) {
             console.log(err);

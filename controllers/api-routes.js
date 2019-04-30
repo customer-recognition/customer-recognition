@@ -15,15 +15,38 @@ module.exports = function (app) {
                 }
             }]
         }).then((result) => {
-            var customer_id = result[0].dataValues.Orders[0].Customer_order.dataValues.CustomerId;
             console.log(req.body);
             db.Customer_order.create({
                 CustomerId: req.body.CustomerId,
                 OrderId: req.body.OrderId
-            }).then((dbCustomerOrder)=>{
-                res.json(dbCustomerOrder);
+            }).then((result)=>{
+                res.json(result);
             })
         }).catch((err) => {
+            console.log(err);
+            res.status(500);
+        })
+    })
+
+    app.post("/api/customer/new", function(req, res){
+        // console.log(req.body.customer_name);
+        // console.log(req.body.order_id);
+        db.Customer.create({
+            customer_name: req.body.customer_name
+        }).then((result)=>{
+            res.json(result);
+            console.log(result.dataValues.id);
+
+            db.Customer_order.create({
+                CustomerId: result.dataValues.id,
+                OrderId: req.body.order_id
+            }).then((result)=>{
+                releaseEvents.json(result);
+            }).catch((err)=>{
+                console.log(err);
+                res.status(500);
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500);
         })
