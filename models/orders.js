@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Order.associate = function (models) {
         Order.belongsToMany(models.Customer, {
-            through: "Customer_orders", timestamps: false
+            through: models.Customer_order, timestamps: false
         })
     }
     return Order;

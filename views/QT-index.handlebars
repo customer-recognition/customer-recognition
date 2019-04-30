@@ -1,4 +1,4 @@
-<h1>customer</h1>
+<h1>Customer</h1>
 
 <div class="customer">
 </div>
@@ -7,19 +7,21 @@
 
 <ul>
   {{#each customer}}
-  {{customer_name}} <input class="view-customer" type="submit" data-name="{{customer-name}}" data-orders="{{customer_purchases}}"
-    value="View Customer"> <br>
+  {{customer_name}} <input class="view-customer" type="submit" data-name="{{customer_name}}"
+    data-orders="{{customer_purchases}}" value="View Customer"> <br>
   {{/each}}
-
 </ul>
 
 <form class="add-food">
-  <input type="text" id="food" name="order">
+  <select id="food">
+    {{#each order}}
+    <option value="{{id}}">{{order_name}}</option>
+    {{/each}}
+  </select>
   <button type="submit">Add Food</button>
 </form>
 
 <script>
-  var food = [];
   $(document).ready(function () {
     $(".view-customer").click(function (event) {
       $(".customer").html("<strong>Customer:</strong> <br>" + $(this).data("name"));
@@ -27,14 +29,14 @@
     });
     $(".add-food").on("submit", function (event) {
       event.preventDefault();
-      var id = "3";
       var newOrder = {
-        order: $("#food").val().trim()
+        CustomerId: 1,
+        OrderId: $("#food").val().trim()
       };
-      $.ajax("/api/customer",{
-        type: "PUT",
+      $.ajax("/api/customer", {
+        type: "POST",
         data: newOrder
-      }).then(function(){
+      }).then(function () {
         location.reload();
       })
     })

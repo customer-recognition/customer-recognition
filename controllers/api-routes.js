@@ -1,40 +1,54 @@
 var db = require("../models");
 
 module.exports = function (app) {
-app.put("/api/customer", function (req, res) {
+    app.post("/api/customer", function (req, res) {
         db.Customer.findAll({
             where: {
-                id: "3"
-            }
-        }).then((result) => {
-            var ordersArray = [];
-            if (result[0].dataValues.orders) {
-                var orders = result[0].dataValues.orders + ", " + req.body.order;
-                if (ordersArray.length < 3) {
-                    ordersArray.push(orders);
-                    console.log(ordersArray.length);
-                } else {
-                    ordersArray.push(orders);
-                }
-
-            } else {
-                var orders = req.body.order;
-                ordersArray.push(orders);
-            }
-
-            db.Customer.update({
-                orders: orders
-            }, {
+                id: "1"
+            },
+            include: [{
+                model: db.Order,
+                through: {
                     where: {
-                        id: "3"
+                        CustomerId: "1"
                     }
-                }).then((result) => {
-                    res.json(result);
-                    console.log(ordersArray);
-                }).catch((err) => {
-                    console.log(err);
-                    res.status(500);
-                })
-        });
+                }
+            }]
+        }).then((result) => {
+            console.log(req.body);
+            db.Customer_order.create({
+                CustomerId: req.body.CustomerId,
+                OrderId: req.body.OrderId
+            }).then((result)=>{
+                res.json(result);
+            })
+        }).catch((err) => {
+            console.log(err);
+            res.status(500);
+        })
+    })
+
+    app.post("/api/customer/new", function(req, res){
+        // console.log(req.body.customer_name);
+        // console.log(req.body.order_id);
+        db.Customer.create({
+            customer_name: req.body.customer_name
+        }).then((result)=>{
+            res.json(result);
+            console.log(result.dataValues.id);
+
+            db.Customer_order.create({
+                CustomerId: result.dataValues.id,
+                OrderId: req.body.order_id
+            }).then((result)=>{
+                releaseEvents.json(result);
+            }).catch((err)=>{
+                console.log(err);
+                res.status(500);
+            })
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500);
+        })
     })
 }
