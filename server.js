@@ -5,7 +5,9 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("/public"));
+// app.use(express.static("/public"));
+app.use(express.static(__dirname + '/public'));
+// IDK WHY THE FIRST ONE DIDNT WORK BUT THE SECOND ONE DID IDK
 
 // Requiring our models for syncing
 var db = require("./models");
