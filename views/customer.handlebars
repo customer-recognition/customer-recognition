@@ -1,22 +1,45 @@
+<form class="add-food">
+    {{#each customer}}
+    <h1>{{customer_name}}</h1>
+    <input type="submit" class="add" data-customer_id="{{id}}">
+    {{/each}}
+    <select id="food">
+        {{#each order}}
+        <option value="{{id}}">{{order_name}}</option>
+        {{/each}}
+    </select>
+</form>
+
+{{!-- {{#if customer}}
 {{#each customer}}
 <h1>{{customer_name}}</h1>
-{{/each}}
-{{!-- <h2>{{dataValues.customer_name}}</h2> --}}
-
 <form class="add-food">
     <select id="food">
         {{#each order}}
         <option value="{{id}}">{{order_name}}</option>
         {{/each}}
     </select>
-    <button type="submit">Order</button>
+    <input type="submit" data-customer_id="{{id}}">
 </form>
+{{/each}}
+{{else}}
+<h1>Email not found</h1>
+<form class="search-customer">
+    <label for="">Search: </label> <br>
+    <input type="text" class="customer_email">
+    <input type="submit">
+</form>
+{{/if}} --}}
+
+
 
 <script>
     $(".add-food").on("submit", function (event) {
+        var customer_id = $(".add").data("customer_id");
+        alert(customer_id);
         event.preventDefault();
         var newOrder = {
-            CustomerId: 1,
+            CustomerId: customer_id,
             OrderId: $("#food").val().trim()
         };
         $.ajax("/api/customer", {
@@ -25,5 +48,15 @@
         }).then(function () {
             window.location.href = "/"
         })
+    });
+
+    $(".search-customer").on("submit", function (event) {
+
+        // This is if we want to get the "ID" instead of their customer name
+        // var customer_id = $(this).data("id");
+        // window.location.href = "/customer/" + customer_id;
+        var customerEmail = $(".customer_email").val();
+        window.location.href = "/customer/" + customerEmail;
+        return false;
     });
 </script>
