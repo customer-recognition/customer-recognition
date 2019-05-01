@@ -1,13 +1,15 @@
 <div class="container">
     <nav>
-        <h1>Client Recognition App</h1>
-        <h2> CRA </h2>
+        <h1 class="display-2">Client Recognition App</h1>
+        <h2 class="display-5"> CRA </h2>
     </nav>
+
 
     <div class="whole-store">
         <div class="host host-table">Host<br>Stand</div>
         <div class="front front-door">Front Door</div>
     </div>
+
 
     <div class="tables">
         <div class="square table table-1">T1</div>
@@ -113,14 +115,18 @@
         $(".returning_customer").show();
     })
 
-    // Took out the ajax call because we didn't need it,
-    // This just reloads the window into the correct page with the ID
     $(".view-customer").click(function (event) {
         var customer_id = $(this).data("id");
-        window.location.href = "/customer/" + customer_id;
-        return false;
+        $.ajax("/customer", {
+            type: "GET",
+            data: {
+                id: customer_id
+            }
+        }).then(function () {
+            window.location.href = "/customer";
+            return false;
+        })
     });
-    
     $(".add-food").on("submit", function (event) {
         event.preventDefault();
         var newOrder = {
@@ -134,7 +140,6 @@
             location.reload();
         })
     });
-
     $(".add-customer").on("submit", function (event) {
         event.preventDefault();
         var newCustomer = {

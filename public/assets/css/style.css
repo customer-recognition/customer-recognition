@@ -2,14 +2,16 @@ html {
     background-color:grey;
 }
 nav {
-    background-color: rgb(231, 136, 136);
-    color:  whitesmoke;
-    
+    background-color: grey
+    color: white
+}
+.body{
+    background-color: grey;
 }
 
 .container{
     color: white;
-    padding: 50px;
+    padding: 100px;
     font: bold
 
 }
