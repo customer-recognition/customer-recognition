@@ -1,12 +1,16 @@
 html {
-    background-color:grey;
+    background-color:rgb(151, 127, 127);
 }
 nav {
-    background-color: grey
+    background-color: rgb(151, 127, 127);
     color: white
 }
 .body{
-    background-color: grey;
+    background-color: rgb(151, 127, 127);
+}
+
+.row{
+    right: 50px;
 }
 
 .container{

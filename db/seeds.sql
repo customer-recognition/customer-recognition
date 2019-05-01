@@ -1,3 +1,4 @@
+
 INSERT INTO customers(customer_name) VALUE("QT");
 INSERT INTO customers(customer_name) VALUE("DK");
 INSERT INTO customers(customer_name) VALUE("MD");

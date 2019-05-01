@@ -22,7 +22,7 @@ describe('Server', () => {
             .send({ 
                 customer_name: "test",
                 OrderId: "4"
-             })
+            })
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);

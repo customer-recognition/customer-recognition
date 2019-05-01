@@ -12,11 +12,22 @@
 
 
     <div class="tables">
-        <div class="square table table-1">T1</div>
+        <div class="square table table-1"><br>T1</div>
+
+    <div class="row">
+        <div class="col-sm-2 table" style="background-color:rgb(180, 28, 28);"><br>T1</div>
+        <div class="col-sm-2" style="background-color:rgb(151, 127, 127);"></div>
+        <div class="col-sm-2 table" style="background-color:green;"><br>T2</div>
+        <div class="col-sm-2" style="background-color:rgb(151, 127, 127);"><br></div>
+        <div class="col-sm-2 table" style="background-color:blue;"><br>T3</div>
+        <div class="col-sm-2" style="background-color:rgb(151, 127, 127);"><br></div>
+        <div class="col-sm-2 table" style="background-color:rgb(0, 238, 255);"><br>T4</div>
 
 
-{{!--         
-        <div class="square table table-2"><br>T2</div>
+
+    </div>
+
+        {{!-- <div class="square table table-2"><br>T2</div>
         <div class="square table table-3"><br>T3</div>
 
         <div class="square table table-4"><br>T4</div>
@@ -26,9 +37,9 @@
         <div class="square table table-7"><br>T7</div>
         <div class="square table table-8"><br>T8</div>
         <div class="square table table-9"><br>T9</div>
-    </div> --}}
+    </div>
 
-
+ --}}
 
     {{!-- STEP ONE QUESTION --}}
     <div class="step_one">
@@ -91,6 +102,8 @@
 <script>
 
     // These divs won't show until you click on any table
+
+
     $(".step_one").hide();
     $(".new_customer").hide();
     $(".returning_customer").hide();
@@ -116,16 +129,13 @@
     })
 
     $(".view-customer").click(function (event) {
-        var customer_id = $(this).data("id");
-        $.ajax("/customer", {
-            type: "GET",
-            data: {
-                id: customer_id
-            }
-        }).then(function () {
-            window.location.href = "/customer";
-            return false;
-        })
+
+        // This is if we want to get the "ID" instead of their customer name
+        // var customer_id = $(this).data("id");
+        // window.location.href = "/customer/" + customer_id;
+        var customerName = $(this).data("name");
+        window.location.href = "/customer/" + customerName;
+        return false;
     });
     $(".add-food").on("submit", function (event) {
         event.preventDefault();
