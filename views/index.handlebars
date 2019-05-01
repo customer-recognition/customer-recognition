@@ -123,7 +123,6 @@
 
     $(".view-customer").click(function (event) {
         var customer_id = $(this).data("id");
-        alert(customer_id);
         $.ajax("/customer", {
             type: "GET",
             data: {
