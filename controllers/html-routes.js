@@ -18,18 +18,18 @@ module.exports = function (app) {
 
     app.get("/customer", function(req, res){
         console.log(req.query.id);
-        // db.Customer.findAll({
-        //     where: {
-        //         id: req.body.customer_id
-        //     }
-        // }).then((result)=>{
-        //     var hbsObject = {
-        //         customer: data
-        //     };
-        //     res.render("customer", hbsObject);
-        // }).catch((err)=>{
-        //     console.log(err);
-        //     res.status(500);
-        // })
+        db.Customer.findAll({
+            where: {
+                id: req.query.id
+            },
+        }).then((data)=>{
+            var hbsObject = {
+                customer: data
+            };
+            res.render("customer", hbsObject);
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500);
+        })
     })
 }
