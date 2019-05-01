@@ -2,8 +2,8 @@ html {
     background-color:grey;
 }
 nav {
-    background-color: pink;
-    color: white;
+    background-color: rgb(231, 136, 136);
+    color:  whitesmoke;
     
 }
 
@@ -17,7 +17,8 @@ nav {
 .whole-store {
     position: relative; 
     top: 0px;
-    left: 0px;
+    left: 0px;  
+    shape-margin: 50px;
 }
 
 .front {
@@ -46,7 +47,7 @@ nav {
     position: absolute;
     width: 40px;
     height: 75px;
-    background: red;
+    background: salmon;
     border-radius: 10%;
 }
 
@@ -56,7 +57,7 @@ nav {
     height: 500px;
     top: 100px;
     left: 700px;
-    background: red;
+    background: salmon;
 }
 
 /*  */
