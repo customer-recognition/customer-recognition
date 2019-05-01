@@ -34,9 +34,14 @@ module.exports = function (app) {
     //         })
     //     })
 
-    app.get("/customer", function (req, res) {
-        res.render("customer");
-        console.log("ID: ", req.query.id)
-    })
-}
+    
+    app.get("/customer/:customerid", function (req, res) {
+        db.Customer.findAll({where: {
+            id: req.params.customerid
+        }}).then((data) => {
+            // console.log("data: ", data);
+            res.render("customer", {Customer: data});
+        });
+    });
+};
 

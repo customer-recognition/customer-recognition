@@ -41,7 +41,7 @@ module.exports = function (app) {
                 CustomerId: result.dataValues.id,
                 OrderId: req.body.order_id
             }).then((result)=>{
-                releaseEvents.json(result);
+                res.json(result);
             }).catch((err)=>{
                 console.log(err);
                 res.status(500);
@@ -49,6 +49,18 @@ module.exports = function (app) {
         }).catch((err)=>{
             console.log(err);
             res.status(500);
+        })
+    })
+
+
+    // route for getting single customer
+    app.get('/api/customer/:id', function (req, res) {
+        db.Customer.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (result) {
+            res.json(result);
         })
     })
 }

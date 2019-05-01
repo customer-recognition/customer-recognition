@@ -113,18 +113,14 @@
         $(".returning_customer").show();
     })
 
+    // Took out the ajax call because we didn't need it,
+    // This just reloads the window into the correct page with the ID
     $(".view-customer").click(function (event) {
         var customer_id = $(this).data("id");
-        $.ajax("/customer", {
-            type: "GET",
-            data: {
-                id: customer_id
-            }
-        }).then(function () {
-            window.location.href = "/customer";
-            return false;
-        })
+        window.location.href = "/customer/" + customer_id;
+        return false;
     });
+    
     $(".add-food").on("submit", function (event) {
         event.preventDefault();
         var newOrder = {
@@ -138,6 +134,7 @@
             location.reload();
         })
     });
+
     $(".add-customer").on("submit", function (event) {
         event.preventDefault();
         var newCustomer = {

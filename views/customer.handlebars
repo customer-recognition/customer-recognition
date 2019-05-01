@@ -1,2 +1,6 @@
 <h1>CUSTOMER PAGE</h1>
-<h2>{{customer_name}}</h2>
+{{!-- <h2>{{dataValues.customer_name}}</h2> --}}
+
+{{#each Customer}}
+{{dataValues.id}}. {{dataValues.customer_name}}
+{{/each}}
