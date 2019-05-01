@@ -54,10 +54,11 @@ module.exports = function (app) {
 
 
     // route for getting single customer
-    app.get('/api/customer/:id', function (req, res) {
+    app.get('/api/customer/:customername', function (req, res) {
         db.Customer.findOne({
             where: {
-                id: req.params.id
+                customer_name: req.params.customer_name
+                // id: req.params.id
             }
         }).then(function (result) {
             res.json(result);

@@ -34,13 +34,16 @@ module.exports = function (app) {
     //         })
     //     })
 
-    
-    app.get("/customer/:customerid", function (req, res) {
-        db.Customer.findAll({where: {
-            id: req.params.customerid
-        }}).then((data) => {
+
+    app.get("/customer/:customername", function (req, res) {
+        db.Customer.findAll({
+            where: {
+                customer_name: req.params.customername
+                // id: req.params.customerid
+            }
+        }).then((data) => {
             // console.log("data: ", data);
-            res.render("customer", {Customer: data});
+            res.render("customer", { Customer: data });
         });
     });
 };
