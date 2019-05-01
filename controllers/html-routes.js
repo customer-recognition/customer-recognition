@@ -16,20 +16,27 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/customer", function(req, res){
-        console.log(req.query.id);
-        db.Customer.findAll({
-            where: {
-                id: req.query.id
-            },
-        }).then((data)=>{
-            var hbsObject = {
-                customer: data
-            };
-            res.render("customer", hbsObject);
-        }).catch((err)=>{
-            console.log(err);
-            res.status(500);
-        })
+    // QT-
+    //     app.get("/customer", function(req, res){
+    //         console.log(req.query.id);
+    //         db.Customer.findAll({
+    //             where: {
+    //                 id: req.query.id
+    //             },
+    //         }).then((data)=>{
+    //             var hbsObject = {
+    //                 customer: data
+    //             };
+    //             res.render("customer", hbsObject);
+    //         }).catch((err)=>{
+    //             console.log(err);
+    //             res.status(500);
+    //         })
+    //     })
+
+    app.get("/customer", function (req, res) {
+        res.render("customer");
+        console.log("ID: ", req.query.id)
     })
 }
+
