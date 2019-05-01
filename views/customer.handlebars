@@ -1,3 +1,4 @@
+{{#if customer}}
 <form class="add-food">
     {{#each customer}}
     <h1>{{customer_name}}</h1>
@@ -9,19 +10,7 @@
         {{/each}}
     </select>
 </form>
-
-{{!-- {{#if customer}}
-{{#each customer}}
-<h1>{{customer_name}}</h1>
-<form class="add-food">
-    <select id="food">
-        {{#each order}}
-        <option value="{{id}}">{{order_name}}</option>
-        {{/each}}
-    </select>
-    <input type="submit" data-customer_id="{{id}}">
-</form>
-{{/each}}
+<a href="/">[Go Back]</a>
 {{else}}
 <h1>Email not found</h1>
 <form class="search-customer">
@@ -29,18 +18,17 @@
     <input type="text" class="customer_email">
     <input type="submit">
 </form>
-{{/if}} --}}
-
-
+<a href="/">[Go Back]</a>
+{{/if}}
 
 <script>
     $(".add-food").on("submit", function (event) {
         var customer_id = $(".add").data("customer_id");
-        alert(customer_id);
+        var order_id = $("#food").val().trim();
         event.preventDefault();
         var newOrder = {
             CustomerId: customer_id,
-            OrderId: $("#food").val().trim()
+            OrderId: order_id
         };
         $.ajax("/api/customer", {
             type: "POST",
