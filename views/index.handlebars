@@ -1,42 +1,16 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 <div class="container">
     <nav>
-        <h1 class="display-2">Client Recognition App</h1>
-        <h2 class="display-5"> CRA </h2>
+        <h1 class="font-weight-bold">Client Recognition App</h1>
+        <h3 class="font-weight-normal"> CRA </h3>
     </nav>
 
 
     <div class="whole-store">
-        <div class="host host-table">Host<br>Stand</div>
-        <div class="front front-door">Front Door</div>
+        <div class="font-weight-bold host host-table">Host<br>Stand</div>
+        <div class="font-weight-bold front front-door">Front Door</div>
     </div>
+
+
 
 
     <div class="tables">
@@ -45,20 +19,22 @@
     <div class="column">
         <div class="col-5" style="background-color: rgb(151,127,127);"></div>
     </div>
-
+<div class= "container">
     <div class="row">
-        <div class="col-sm-1 table" style="background-color:rgb(180, 28, 28);"><br>T1</div>
+        <div class="col-sm-1 table" style="background-color:rgb(180, 154, 39);"><br>T1</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"></div>
         <div class="col-sm-1 table" style="background-color:green;"><br>T2</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
         <div class="col-sm-1 table" style="background-color:blue;"><br>T3</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-        <div class="col-sm-1 table" style="background-color:rgb(255, 0, 191);"><br>T4</div>
-        <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-        <div class="col-sm-1 table" style="background-color:rgb(109, 95, 48);"><br>T5</div>
-        <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-        <div class="col-sm-1 table" style="background-color:rgb(0, 238, 255);"><br>T6</div>
-
+        <div class="row">
+            <div class="col-sm-1 table" style="background-color:rgb(255, 0, 191);"><br>T4</div>
+            <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
+            <div class="col-sm-1 table" style="background-color:rgb(109, 95, 48);"><br>T5</div>
+            <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
+            <div class="col-sm-1 table" style="background-color:rgb(0, 238, 255);"><br>T6</div>
+    </div>
+</div>
 
 
     </div>
@@ -106,44 +82,32 @@
     {{!-- RETURNING CUSTOMER --}}
     <div class="returning_customer">
         <h1>Customer Information</h1>
-        <ul>
-            {{#each customer}}
-            {{customer_name}}
-
-            <input class="view-customer" type="submit" data-name="{{customer_name}}" data-id="{{id}}"
-                value="View Customer">
-
-            <br>
-            {{/each}}
-        </ul>
-        <form class="add-food">
-            <select id="food">
-                {{#each order}}
-                <option value="{{id}}">{{order_name}}</option>
-                {{/each}}
-            </select>
+        <form class="search-customer">
+            <label for="">Search:</label>
+            <input type="text" class="customer_email"> <br>
+            <input type="submit">
         </form>
         <button class="back">[Go back]</button>
         <hr>
     </div>
-
-
-
-
 </div>
 
-    
+<!-- Compressed CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
+    integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
+    crossorigin="anonymous">
+
+<!-- Compressed JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"
+    integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw=="
+    crossorigin="anonymous"></script>
+
+
 
 
 <script>
 
-    $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
-
     // These divs won't show until you click on any table
-
-
     $(".step_one").hide();
     $(".new_customer").hide();
     $(".returning_customer").hide();
@@ -168,27 +132,17 @@
         $(".returning_customer").show();
     })
 
-    $(".view-customer").click(function (event) {
+    // Took out the ajax call because we didn't need it,
+    // This just reloads the window into the correct page with the ID
+
+    $(".search-customer").on("submit", function (event) {
 
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
-        var customerName = $(this).data("name");
-        window.location.href = "/customer/" + customerName;
+        var customerEmail = $(".customer_email").val();
+        window.location.href = "/customer/" + customerEmail;
         return false;
-    });
-    $(".add-food").on("submit", function (event) {
-        event.preventDefault();
-        var newOrder = {
-            CustomerId: 1,
-            OrderId: $("#food").val().trim()
-        };
-        $.ajax("/api/customer", {
-            type: "POST",
-            data: newOrder
-        }).then(function () {
-            location.reload();
-        })
     });
     $(".add-customer").on("submit", function (event) {
         event.preventDefault();

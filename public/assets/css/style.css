@@ -24,7 +24,7 @@ nav {
     position: relative; 
     top: 0px;
     left: 0px;  
-    shape-margin: 50px;
+    shape-margin: 100px;
 }
 
 .front {
@@ -42,10 +42,10 @@ nav {
     border-radius: 5%;
 }
 
-/* .tables {
+.tables {
     position: relative; 
     top: 70px;
-    left: 270px; */
+    left: 270px;
 }
 
 
@@ -63,7 +63,7 @@ nav {
     height: 500px;
     top: 100px;
     left: 700px;
-    background: salmon;
+    background: rgb(245, 184, 184);
 }
 
 /*  */
@@ -72,7 +72,7 @@ nav {
 .host-table, .front-door, .table-1, .table-2, 
 .table-3, .table-4, .table-5, .table-6, .table-7, 
 .table-8, .table-9 {
-    color: rgb(216, 169, 178);
+    color: white;
     text-align: center;
     font-display: times;
     border:1px;
@@ -85,7 +85,7 @@ nav {
 
 .front-door {
     top: 100px;
-    left: 0px;
+    left:0px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }

@@ -3,6 +3,11 @@ module.exports = function (sequelize, DataTypes) {
         customer_name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        customer_email: {
+            type: DataTypes.STRING,
+            unique: true,
+            allowNull: false
         }
     },{
         timestamps: false
