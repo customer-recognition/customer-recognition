@@ -128,8 +128,8 @@
     // Took out the ajax call because we didn't need it,
     // This just reloads the window into the correct page with the ID
     $(".view-customer").click(function (event) {
-        var customer_id = $(this).data("id");
-        window.location.href = "/customer/" + customer_id;
+        var customer_id = $(this).data("name");
+        window.location.href = "/customer/" + customer_name
         return false;
     });
     
