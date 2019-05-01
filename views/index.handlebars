@@ -59,8 +59,12 @@
         <h1>Customer Information</h1>
         <ul>
             {{#each customer}}
-            {{customer_name}} <input class="view-customer" type="submit" data-name="{{customer_name}}"
-                data-id="{{id}}" value="View Customer"> <br>
+            {{customer_name}}
+
+            <input class="view-customer" type="submit" data-name="{{customer_name}}" data-id="{{id}}"
+                value="View Customer">
+
+            <br>
             {{/each}}
         </ul>
         <form class="add-food">
@@ -114,10 +118,11 @@
         $.ajax("/customer", {
             type: "GET",
             data: {
-               id: customer_id
-               }
-        }).then(function(){
-            location.reload();
+                id: customer_id
+            }
+        }).then(function () {
+            window.location.href = "/customer";
+            return false;
         })
     });
     $(".add-food").on("submit", function (event) {
