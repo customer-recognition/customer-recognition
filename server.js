@@ -26,12 +26,13 @@ app.set("view engine", "handlebars");
 require('./controllers/html-routes.js')(app);
 require('./controllers/api-routes.js')(app);
 // app.use('/', routes);
-
-
-// Start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: false }).then(function () {
-  app.listen(PORT, function () {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
+module.exports = new Promise(function (resolve, reject) {
+  // Start our server so that it can begin listening to client requests.
+  db.sequelize.sync({ force: false }).then(function () {
+    resolve(app.listen(PORT, function () {
+      // Log (server-side) when our server has started
+      console.log("Server listening on: http://localhost:" + PORT);
+    }));
   });
-});
+
+})
