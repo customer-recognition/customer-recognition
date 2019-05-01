@@ -15,4 +15,21 @@ module.exports = function (app) {
             res.status(500);
         });
     });
+
+    app.get("/customer", function(req, res){
+        console.log(req.query.id);
+        db.Customer.findAll({
+            where: {
+                id: req.query.id
+            },
+        }).then((data)=>{
+            var hbsObject = {
+                customer: data
+            };
+            res.render("customer", hbsObject);
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500);
+        })
+    })
 }
