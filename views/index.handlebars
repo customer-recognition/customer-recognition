@@ -53,37 +53,15 @@
     {{!-- RETURNING CUSTOMER --}}
     <div class="returning_customer">
         <h1>Customer Information</h1>
-        <ul>
-            {{#each customer}}
-            {{customer_name}}
-
-            <input class="view-customer" type="submit" data-name="{{customer_name}}" data-id="{{id}}"
-                value="View Customer">
-
-            <br>
-            {{/each}}
-        </ul>
-        <form class="add-food">
-            <select id="food">
-                {{#each order}}
-                <option value="{{id}}">{{order_name}}</option>
-                {{/each}}
-            </select>
+        <form class="search-customer">
+            <label for="">Search:</label>
+            <input type="text" class="customer_email"> <br>
+            <input type="submit">
         </form>
         <button class="back">[Go back]</button>
         <hr>
     </div>
-
-
-
-
 </div>
-
-
-
-
-
-
 
 <!-- Compressed CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
@@ -127,28 +105,15 @@
 
     // Took out the ajax call because we didn't need it,
     // This just reloads the window into the correct page with the ID
-    $(".view-customer").click(function (event) {
+
+    $(".search-customer").on("submit", function (event) {
 
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
-        var customerName = $(this).data("name");
-        window.location.href = "/customer/" + customerName;
+        var customerEmail = $(".customer_email").val();
+        window.location.href = "/customer/" + customerEmail;
         return false;
-    });
-    
-    $(".add-food").on("submit", function (event) {
-        event.preventDefault();
-        var newOrder = {
-            CustomerId: 1,
-            OrderId: $("#food").val().trim()
-        };
-        $.ajax("/api/customer", {
-            type: "POST",
-            data: newOrder
-        }).then(function () {
-            location.reload();
-        })
     });
 
     $(".add-customer").on("submit", function (event) {

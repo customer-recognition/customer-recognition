@@ -1,6 +1,29 @@
-<h1>CUSTOMER PAGE</h1>
+{{#each customer}}
+<h1>{{customer_name}}</h1>
+{{/each}}
 {{!-- <h2>{{dataValues.customer_name}}</h2> --}}
 
-{{#each Customer}}
-{{dataValues.id}}. {{dataValues.customer_name}}
-{{/each}}
+<form class="add-food">
+    <select id="food">
+        {{#each order}}
+        <option value="{{id}}">{{order_name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Order</button>
+</form>
+
+<script>
+    $(".add-food").on("submit", function (event) {
+        event.preventDefault();
+        var newOrder = {
+            CustomerId: 1,
+            OrderId: $("#food").val().trim()
+        };
+        $.ajax("/api/customer", {
+            type: "POST",
+            data: newOrder
+        }).then(function () {
+            window.location.href = "/"
+        })
+    });
+</script>

@@ -16,35 +16,22 @@ module.exports = function (app) {
         });
     });
 
-    // QT-
-    //     app.get("/customer", function(req, res){
-    //         console.log(req.query.id);
-    //         db.Customer.findAll({
-    //             where: {
-    //                 id: req.query.id
-    //             },
-    //         }).then((data)=>{
-    //             var hbsObject = {
-    //                 customer: data
-    //             };
-    //             res.render("customer", hbsObject);
-    //         }).catch((err)=>{
-    //             console.log(err);
-    //             res.status(500);
-    //         })
-    //     })
-
-
-    app.get("/customer/:customername", function (req, res) {
+    app.get("/customer/:search", function (req, res) {
+        console.log(req.params)
         db.Customer.findAll({
             where: {
-                customer_name: req.params.customername
+                customer_email: req.params.search
                 // id: req.params.customerid
             }
         }).then((data) => {
             // console.log("data: ", data);
-            res.render("customer", { Customer: data });
+            db.Order.findAll({}).then((data2) => {
+                var hbsObject = {
+                    customer: data,
+                    order: data2
+                }
+                res.render("customer", hbsObject);
+            })
         });
     });
 };
-
