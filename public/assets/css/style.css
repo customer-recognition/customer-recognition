@@ -49,7 +49,7 @@ nav {
     position: absolute;
     width: 40px;
     height: 75px;
-    background: salmon;
+    background: rgb(250, 248, 114);
     border-radius: 10%;
 }
 
@@ -70,7 +70,9 @@ nav {
 .table-8, .table-9 {
     color: rgb(216, 169, 178);
     text-align: center;
-    font-display: times
+    font-display: times;
+    border:1px;
+    box-sizing: border-box
 }
 
 .host-table, .front-door{
