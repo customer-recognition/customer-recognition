@@ -13,8 +13,6 @@ chai.use(chaiHttp);
 // var db = require('../controllers');
 
 describe('Server', () => {
-    // var host = "http://" + process.env.IP + ':' + process.env.PORT;
-    // var path = "/api/customer";
 
     it('Should show server working', () => {
         return require('../server.js').then(function (server) {
@@ -23,7 +21,7 @@ describe('Server', () => {
             .post('/api/customer/new')
             .send({ 
                 customer_name: "test",
-                OrderId: "1"
+                OrderId: "4"
              })
             .end(function (err, res) {
                 expect(err).to.be.null;
