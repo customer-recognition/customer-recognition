@@ -2,12 +2,12 @@ module.exports = function (sequelize, DataTypes) {
     var Customer = sequelize.define("Customer", {
         customer_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            // allowNull: false
         },
         customer_email: {
             type: DataTypes.STRING,
             unique: true,
-            allowNull: false
+            // allowNull: false
         }
     },{
         timestamps: false
@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Customer.associate = function (models) {
         Customer.belongsToMany(models.Order, {
-            through: models.Customer_order, timestamps: false
+            through: models.Customer_order, timestamps: false,
         });
     };
     return Customer;

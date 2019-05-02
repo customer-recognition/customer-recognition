@@ -14,7 +14,7 @@ module.exports = function (app) {
             console.log(err);
             res.status(500);
         });
-    });
+    })
 
     app.get("/customer/:search", function (req, res) {
         db.Customer.findAll({
@@ -40,16 +40,19 @@ module.exports = function (app) {
 
                         if (data3[0].Orders[0]) {
                             var order1 = data3[0].Orders[0].dataValues.Customer_order.dataValues.quantity;
+                            console.log("order 1: " + order1)
                         } else {
                             var order1 = 0;
                         }
                         if (data3[0].Orders[1]) {
                             var order2 = data3[0].Orders[1].dataValues.Customer_order.dataValues.quantity;
+                            console.log("order 2: " + order2)
                         } else {
                             var order2 = 0;
                         }
                         if (data3[0].Orders[2]) {
                             var order3 = data3[0].Orders[2].dataValues.Customer_order.dataValues.quantity;
+                            console.log("order 3: " + order3)
                         } else {
                             var order3 = 0;
                         }
@@ -57,27 +60,36 @@ module.exports = function (app) {
                         var favFood = Math.max(order1, order2, order3);
 
                         if (favFood == order1) {
-                            var favorite_food = data3[0].Orders[0].dataValues.order_name
+                            var favorite_food = data3[0].Orders[0].dataValues.order_name;
+                            var quantity = data3[0].Orders[0].dataValues.Customer_order.dataValues.quantity;
                         } else if (favFood == order2){
                             var favorite_food = data3[0].Orders[1].dataValues.order_name
+                            var quantity = data3[0].Orders[1].dataValues.Customer_order.dataValues.quantity;
                         } else if (favFood == order3){
                             var favorite_food = data3[0].Orders[2].dataValues.order_name
+                            var quantity  = data3[0].Orders[2].dataValues.Customer_order.dataValues.quantity;
                         }
 
                         console.log(favorite_food)
+
 
                         var hbsObject = {
                             customer: data,
                             order: data2,
                             favorite_food: favorite_food,
+                            quantity: quantity,
                             customer_order: data3
                         }
                         var wtf = hbsObject.customer_order[0].dataValues.Orders[0].dataValues.Customer_order.dataValues;
-                        console.log(wtf);
+
+                        var quantity = hbsObject.customer_order[0].dataValues.Orders[0].dataValues.Customer_order.dataValues.quantity;
+                        console.log(quantity)
+
+                        // console.log(wtf.quantity);
                         res.render("customer", hbsObject);
                     })
                 })
             }
         });
-    });
-};
+    }
+)}
