@@ -67,12 +67,20 @@ nav {
     border-radius: 10%;
 } */
 
+<<<<<<< HEAD
 .lbtn{
     border: 3px solid grey;
     height: 200px;
     width: 200px
 
 }
+=======
+#navigation,.navbar .navbar-default{
+    /* background-image: url("/public/assets/img/customer\ recognition.png"); */
+    background-color: red;
+  }
+
+>>>>>>> ce6fbb50ab81ef987f6fbad23007e8ea486ea4bf
 
 .step_one, .new_customer, .returning_customer {
     position: fixed;
@@ -92,12 +100,15 @@ nav {
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
 
+<<<<<<< HEAD
+=======
 .error_form {
     font-size: 12px;
     color: red;
 
     
     
+>>>>>>> f42a24021d4cc4ab245b157ef03fbf3e19d4b610
 /*  */
 
 
@@ -170,5 +181,12 @@ nav {
     font-size: 12px;
     color: red;
 }
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> f42a24021d4cc4ab245b157ef03fbf3e19d4b610
+>>>>>>> ce6fbb50ab81ef987f6fbad23007e8ea486ea4bf

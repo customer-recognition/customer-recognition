@@ -1,43 +1,101 @@
-{{!-- This page has two possible outcomes, 
-the first being if the customer email was found --}}
-{{#if customer}}
-<form class="add-food">
-    {{#each customer}}
-    <h1>{{customer_name}}</h1>
+<!doctype html>
+{{!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr"> --}}
 
-    <input 
-    onclick="window.location='/'" type="submit" class="add" data-customer_id="{{id}}">
-    {{/each}}
-    <select id="food">
-        {{#each order}}
-        <option value="{{id}}">{{order_name}}</option>
-        {{/each}}
-    </select>
-</form>
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="google" value="notranslate">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="http://use.fontawesome.com/release/v5.9.8/js/all.js"></script>
 
-<a href="/">[Go Back]</a>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+    <title>Customer Recognition App</title>
+</head>
 
-{{!-- This being if the email was not found --}}
-{{else}}
-<h1>Email not found</h1>
-<form class="search-customer">
-    <label for="">Search: </label> <br>
-    <input type="text" class="customer_email">
-    <input type="submit">
-</form>
-<a href="/">[Go Back]</a>
-{{/if}}
+<body>
 
 
-{{!-- This is the customers favorite food item --}}
-<div class="favorite-food">
-    <p>Customer's most ordered item is:</p>
-Amount: {{quantity}} <br>
-Food Item: {{favorite_food}} 
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
 
-</div>
+                <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
+            </div>
+
+            <a class="btn btn-primary float-right" href="/" role="button">Back</a>
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                {{!-- This page has two possible outcomes, 
+                the first being if the customer email was found --}}
+                {{#if customer}}
+                <form class="add-food">
+                    {{#each customer}}
+                    <h1 class="float-left">Welcome back, {{customer_name}}.</h1>
+
+                    <input type="submit" class="add" data-customer_id="{{id}}">
+                    {{/each}}
+
+
+                    <select id="food">
+                        {{#each order}}
+                        <option value="{{id}}">{{order_name}}</option>
+                        {{/each}}
+                    </select>
+                </form>
+
+
+                {{!-- This is the customers favorite food item --}}
+                <div class="favorite-food">
+                    <h1 class="display-4">Customer Information:</h1>
+                    Amount Ordered: {{quantity}} <br>
+                    Food Item: {{favorite_food}}
+                </div>
+
+                {{!-- This being if the email was not found --}}
+                {{else}}
+                <h1>Email not found</h1>
+                <form class="search-customer">
+                    <label for="">Search: </label> <br>
+                    <input type="text" class="customer_email">
+                    <input type="submit">
+                </form>
+                {{/if}}
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
 
 
 <script>
