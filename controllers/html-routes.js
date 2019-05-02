@@ -26,9 +26,8 @@ module.exports = function (app) {
             // console.log("data: ", data);
             if (data != "") {
                 var customer_id = data[0].dataValues.id;
-                console.log("customer id: ", customer_id);
             } else {
-                res.render("customer")
+                res.render("customer");
             }
             if (customer_id) {
                 db.Order.findAll({}).then((data2) => {
@@ -38,9 +37,21 @@ module.exports = function (app) {
                         },
                         include: [db.Order]
                     }).then((data3) => {
-                        var order1 = data3[0].Orders[0].dataValues.Customer_order.dataValues.quantity;
-                        var order2 = data3[0].Orders[1].dataValues.Customer_order.dataValues.quantity;
-                        var order3 = data3[0].Orders[2].dataValues.Customer_order.dataValues.quantity;
+                        if (data3[0].Orders[0]) {
+                            var order1 = data3[0].Orders[0].dataValues.Customer_order.dataValues.quantity;
+                        } else {
+                            var order1 = 0;
+                        }
+                        if (data3[0].Orders[1]) {
+                            var order2 = data3[0].Orders[1].dataValues.Customer_order.dataValues.quantity;
+                        } else {
+                            var order2 = 0;
+                        }
+                        if (data3[0].Orders[1]) {
+                            var order3 = data3[0].Orders[2].dataValues.Customer_order.dataValues.quantity;
+                        } else {
+                            var order3 = 0;
+                        }
 
                         if (order1 >= order2 && order1 >= order3) {
                             var favorite_food = data3[0].Orders[0].dataValues.order_name
