@@ -14,22 +14,14 @@ module.exports = function (app) {
             console.log(err);
             res.status(500);
         });
-    })
+    });
 
-app.get("/customer/:search", function (req, res) {
-    db.Customer.findAll({
-        where: {
-            customer_email: req.params.search
-            // id: req.params.customerid
-        }
-    }).then((data) => {
-        // console.log("data: ", data);
-        db.Order.findAll({}).then((data2) => {
-            var hbsObject = {
-                customer: data,
-                order: data2
+    app.get("/customer/:search", function (req, res) {
+        db.Customer.findAll({
+            where: {
+                customer_email: req.params.search
+                // id: req.params.customerid
             }
-<<<<<<< HEAD
         }).then((data) => {
             // console.log("data: ", data);
             if (data != "") {
@@ -70,10 +62,6 @@ app.get("/customer/:search", function (req, res) {
                     })
                 })
             }
-=======
-                res.render("customer", hbsObject);
-            })
->>>>>>> 4004ce6dbcead44467e320530e27491e7d857f67
         });
     });
-}
+};
