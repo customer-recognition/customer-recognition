@@ -2,48 +2,35 @@ var db = require("../models");
 
 module.exports = function (app) {
     app.put("/api/customer", function (req, res) {
-        db.Customer.findAll({
+        db.Customer_order.findAll({
             where: {
-                id: req.body.CustomerId
-            },
-            include: [{
-                model: db.Order,
-                through: {
-                    where: {
-                        CustomerId: req.body.CustomerId
-                    }
-                }
-            }]
+                CustomerId: req.body.CustomerId,
+                OrderId: req.body.OrderId
+            }
         }).then((result) => {
-            db.Customer_order.findAll({
-                where: {
+            if (result == "") {
+                db.Customer_order.create({
                     CustomerId: req.body.CustomerId,
                     OrderId: req.body.OrderId
-                }
-            }).then((result) => {
-                if (result == "") {
-                    db.Customer_order.create({
-                        CustomerId: req.body.CustomerId,
-                        OrderId: req.body.OrderId
-                    }).then((result) => {
-                        res.json(result);
-                    })
-                } else {
-                    var orderCount = result[0].dataValues.quantity;
-                    db.Customer_order.update({
-                        quantity: orderCount+=1
-                    },{
+                }).then((result) => {
+                    res.json(result);
+                })
+            } else {
+                var orderCount = result[0].dataValues.quantity;
+                db.Customer_order.update({
+                    quantity: orderCount += 1
+                }, {
                         where: {
                             CustomerId: req.body.CustomerId,
                             OrderId: req.body.OrderId
                         }
+                    }).then((result) => {
+                        res.json(result);
+                    }).catch((err) => {
+                        console.log(err);
+                        res.status(500);
                     })
-                }
-            })
-
-        }).catch((err) => {
-            console.log(err.message);
-            res.status(500);
+            }
         })
     })
 
@@ -54,9 +41,6 @@ module.exports = function (app) {
             customer_name: req.body.customer_name,
             customer_email: req.body.customer_email
         }).then((result) => {
-            res.json(result);
-            console.log(result.dataValues.id);
-
             db.Customer_order.create({
                 CustomerId: result.dataValues.id,
                 OrderId: req.body.order_id
@@ -71,17 +55,4 @@ module.exports = function (app) {
             res.status(500);
         })
     })
-
-
-    // route for getting single customer
-    // app.get('/api/customer/:customername', function (req, res) {
-    //     db.Customer.findOne({
-    //         where: {
-    //             customer_name: req.params.customer_name
-    //             // id: req.params.id
-    //         }
-    //     }).then(function (result) {
-    //         res.json(result);
-    //     })
-    // })
 }
