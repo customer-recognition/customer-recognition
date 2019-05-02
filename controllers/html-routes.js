@@ -37,6 +37,7 @@ module.exports = function (app) {
                         },
                         include: [db.Order]
                     }).then((data3) => {
+
                         if (data3[0].Orders[0]) {
                             var order1 = data3[0].Orders[0].dataValues.Customer_order.dataValues.quantity;
                         } else {
@@ -47,19 +48,23 @@ module.exports = function (app) {
                         } else {
                             var order2 = 0;
                         }
-                        if (data3[0].Orders[1]) {
+                        if (data3[0].Orders[2]) {
                             var order3 = data3[0].Orders[2].dataValues.Customer_order.dataValues.quantity;
                         } else {
                             var order3 = 0;
                         }
 
-                        if (order1 >= order2 && order1 >= order3) {
+                        var favFood = Math.max(order1, order2, order3);
+
+                        if (favFood == order1) {
                             var favorite_food = data3[0].Orders[0].dataValues.order_name
-                        } else if (order2 >= order1 && order1 >= order3) {
+                        } else if (favFood == order2){
                             var favorite_food = data3[0].Orders[1].dataValues.order_name
-                        } else if (order3 >= order1 && order3 >= order2) {
+                        } else if (favFood == order3){
                             var favorite_food = data3[0].Orders[2].dataValues.order_name
                         }
+
+                        console.log(favorite_food)
 
                         var hbsObject = {
                             customer: data,
