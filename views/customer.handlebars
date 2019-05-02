@@ -31,11 +31,15 @@ Items that have been ordered: <br>
 <a href="/">[Go Back]</a>
 {{/if}}
 
+<div class="favorite-food">
+    <p>Customer's most ordered item is</p>
+    {{favorite_food}}
+</div>
+
 <script>
     $(".add-food").on("submit", function (event) {
         var customer_id = $(".add").data("customer_id");
         var order_id = $("#food").val().trim();
-        event.preventDefault();
         var newOrder = {
             CustomerId: customer_id,
             OrderId: order_id
@@ -44,12 +48,11 @@ Items that have been ordered: <br>
             type: "PUT",
             data: newOrder
         }).then(function () {
-            window.location.href = "/"
+            window.location.href = "/";
         })
     });
 
     $(".search-customer").on("submit", function (event) {
-
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
