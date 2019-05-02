@@ -75,11 +75,10 @@ nav {
 }
 
 .step_one, .new_customer, .returning_customer {
-    position: absolute;
+    position: fixed;
+    bottom: 0px;
     width: 500px;
     height: 500px;
-    top: 100px;
-    left: 700px;
     background: rgb(226, 220, 220);
     border: 10px;
     border-color: grey
