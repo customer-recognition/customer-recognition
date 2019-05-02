@@ -1,7 +1,13 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+.bfont{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 30px;
+    color: black;
+};
 
+.clear{
+    color: #eee; 
 
-
+}
 /* html {
     background-color:rgb(151, 127, 127);
 }
@@ -61,6 +67,13 @@ nav {
     border-radius: 10%;
 } */
 
+.lbtn{
+    border: 3px solid grey;
+    height: 200px;
+    width: 200px
+
+}
+
 .step_one, .new_customer, .returning_customer {
     position: absolute;
     width: 500px;
@@ -69,11 +82,19 @@ nav {
     left: 700px;
     background: rgb(226, 220, 220);
 }
+.qfont {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    
+};
 
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
 
 .error_form {
     font-size: 12px;
     color: red;
+
+    
     
 /*  */
 
@@ -147,3 +168,5 @@ nav {
     font-size: 12px;
     color: red;
 }
+
+
