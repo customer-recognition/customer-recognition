@@ -1,4 +1,4 @@
-html {
+/* html {
     background-color:rgb(151, 127, 127);
 }
 nav {
@@ -46,16 +46,16 @@ nav {
     position: relative; 
     top: 70px;
     left: 270px;
-}
+} */
 
-
+/* 
 .square {
     position: absolute;
     width: 40px;
     height: 75px;
     background: rgb(250, 248, 114);
     border-radius: 10%;
-}
+} */
 
 .step_one, .new_customer, .returning_customer {
     position: absolute;
@@ -79,7 +79,7 @@ nav {
     box-sizing: border-box
 }
 
-.host-table, .front-door{
+/* .host-table, .front-door{
     background: black;
 }
 
@@ -94,8 +94,8 @@ nav {
     left: 100px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-}
-.table-1 {
+} */
+/* .table-1 {
     top: 0px;
     left: 0px;
 }
@@ -117,8 +117,8 @@ nav {
 }
 .table-6 {
     top: 240px;
-    left: 120px;
-}
+    left: 120px; */
+/* }
 .table-7 {
     top: 0px;
     left: 240px;
@@ -132,4 +132,4 @@ nav {
 .table-9 {
     top: 240px;
     left: 240px;
-}
+} */
