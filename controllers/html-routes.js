@@ -14,7 +14,7 @@ module.exports = function (app) {
             console.log(err);
             res.status(500);
         });
-    })
+    });
 
     app.get("/customer/:search", function (req, res) {
         db.Customer.findAll({

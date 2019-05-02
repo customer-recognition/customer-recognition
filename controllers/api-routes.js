@@ -54,5 +54,24 @@ module.exports = function (app) {
             console.log(err);
             res.status(500);
         })
+        // db.Customer.create({
+        //     customer_name: req.body.customer_name
+        // }).then((result)=>{
+        //     res.json(result);
+        //     console.log(result.dataValues.id);
+
+        //     db.Customer_order.create({
+        //         CustomerId: result.dataValues.id,
+        //         OrderId: req.body.order_id
+        //     }).then((result)=>{
+        //         res.json(result);
+        //     }).catch((err)=>{
+        //         console.log(err);
+        //         res.status(500);
+        //     })
+        // }).catch((err)=>{
+        //     console.log(err);
+        //     res.status(500);
+        // })
     })
 }

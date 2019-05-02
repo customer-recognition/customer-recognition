@@ -1,88 +1,160 @@
-<div class="container">
-    <nav>
-        <h1>Restaurant thang</h1>
+<!doctype html>
+{{!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr"> --}}
+
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="google" value="notranslate">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="http://use.fontawesome.com/release/v5.9.8/js/all.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <title>Customer Recognition App</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                {{!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> --}}
+                </button>
+                <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div>
+        </div>
     </nav>
 
-    <div class="whole-store">
-        <div class="host host-table">Host<br>Stand</div>
-        <div class="front front-door">Front Door</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h2>Welcome to CRA!</h2>
+            <p>
+                This is a template for a simple marketing or informational website. It includes a large callout
+                called a jumbotron and three supporting pieces of content. Use it as a starting point to create
+                something more unique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatem
+                distinctio dicta dolorum voluptas, perferendis, architecto ducimus dignissimos hic asperiores error
+                aperiam fugit velit beatae accusamus, in sunt autem itaque?
+
+            </p>
+            <p><a class="table btn btn-primary btn-lg" href="#" role="button">Enter Customer &raquo;</a></p>
+        </div>
+    </div>
+    {{!-- 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Section 1</h2>
+        <p>Some information for section 1</p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Section 2</h2>
+        <p>Some information for section 2 </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Section 3</h2>
+        <p>Some information for section 1</p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
     </div>
 
-    <div class="tables">
-        <div class="square table table-1"><br>T1</div>
-        <div class="square table table-2"><br>T2</div>
-        <div class="square table table-3"><br>T3</div>
+    <hr>
 
-        <div class="square table table-4"><br>T4</div>
-        <div class="square table table-5"><br>T5</div>
-        <div class="square table table-6"><br>T6</div>
+    <footer>
+      <p>&copy; My App 2015</p>
+    </footer>
+  </div> <!-- /container --> --}}
 
-        <div class="square table table-7"><br>T7</div>
-        <div class="square table table-8"><br>T8</div>
-        <div class="square table table-9"><br>T9</div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+{{!-- <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="/public/assets/img/customer recognition.jpg"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
+</nav> --}}
+
+{{!-- 
+<div class="container">
+    <nav class="">
+        <h1 class="font-weight-bold color: black">Client Recognition App</h1>
+        <h3 class="font-weight-normal color: black"> CRA </h3>
+    </nav> --}}
+
+{{!-- <div class="table">
+    <div class = "font-weight-bold color:black ">Welcome to our business~!</div>
+</div> --}}
 
 
-
-    {{!-- STEP ONE QUESTION --}}
-    <div class="step_one">
-        Is this a new customer or returning customer? <br>
-        <button id="new-customer">New Customer</button> <br>
-        <button id="returning-customer">Returning Customer</button>
-    </div>
-
-
-    {{!-- NEW CUSTOMER --}}
-    <div class="new_customer">
-        <h1>Add Information</h1>
-        <button class="back">[Go back]</button>
-        <hr>
-
-        <form class="add-customer" id="registration_form">
-            <label for="name">Name</label>
-            <input type="text" class="form_text" name="name" id="newCustomer">
-            <span class="error_form" id="name_error_message"></span> <br>
-            <label for="email">Email</label>
-            <input type="text" class="form_text" name="email" id="newEmail"> <br>
-            <span class="error_form" id="email_error_message"></span> <br>
-            <select id="food">
-                {{#each order}}
-                <option value="{{id}}">{{order_name}}</option>
-                {{/each}}
-            </select>
-            <button type="submit">Add customer</button>
-            <span id="login_failed"></span>
-        </form>
-    </div>
-
-    {{!-- RETURNING CUSTOMER --}}
-    <div class="returning_customer">
-        <h1>Customer Information</h1>
-        <form class="search-customer">
-            <label for="">Search:</label>
-            <input type="text" class="customer_email"> <br>
-            <input type="submit">
-        </form>
-        <button class="back">[Go back]</button>
-        <hr>
-    </div>
+{{!-- STEP ONE QUESTION --}}
+<div class="step_one">
+    Is this a new customer or returning customer? <br>
+    <button id="new-customer">New Customer</button> <br>
+    <button id="returning-customer">Returning Customer</button>
 </div>
 
-<!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
-    integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
-    crossorigin="anonymous">
 
-<!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"
-    integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw=="
-    crossorigin="anonymous"></script>
+{{!-- NEW CUSTOMER --}}
+<div class="new_customer">
+    <h1>Add Information</h1>
+    <button class="back">[Go back]</button>
+    <hr>
 
+    <form class="add-customer">
+        <label for="name">Name</label>
+        <input type="text" id="newCustomer"> <br>
+        <label for="email">Email</label>
+        <input type="text" id="newEmail">
+        <select id="food">
+            {{#each order}}
+            <option value="{{id}}">{{order_name}}</option>
+            {{/each}}
+        </select>
+        <button type="submit">Add customer</button>
+        <span id="login_failed"></span>
+    </form>
+</div>
+
+{{!-- RETURNING CUSTOMER --}}
+<div class="returning_customer">
+    <h1>Customer Information</h1>
+    <form class="search-customer">
+        <label for="">Search:</label>
+        <input type="text" class="customer_email"> <br>
+        <input type="submit">
+    </form>
+    <button class="back">[Go back]</button>
+    <hr>
+</div>
+</div>
 
 
 
 <script>
-
     // These divs won't show until you click on any table
     $(".step_one").hide();
     $(".new_customer").hide();
@@ -113,6 +185,7 @@
     // This just reloads the window into the correct page with the ID
 
     $(".search-customer").on("submit", function (event) {
+
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
@@ -120,7 +193,6 @@
         window.location.href = "/customer/" + customerEmail;
         return false;
     });
-
     $(".add-customer").on("submit", function (event) {
         event.preventDefault();
         var newCustomer = {
@@ -129,36 +201,51 @@
             order_id: $("#food").val().trim()
         };
 
-        if (newCustomer.customer_name == "") {
-            alert("Please enter a valid name")
-            $('#newCustomer').focus();
-            return false;
-        }
-        if (newCustomer.customer_email == "") {
-            alert("Please enter a password")
-            $('#newEmail').focus();
-            return false;
-        }
-        if (newCustomer.customer_name != '' && newCustomer.customer_email != '') {
-            $.ajax("/api/customer/new", {
+// if (newCustomer.customer_name == "") {
+//     alert("Please enter a valid name")
+//     $('#newCustomer').focus();
+//     return false;
+// }
+// if (newCustomer.customer_email == "") {
+//     alert("Please enter a password")
+//     $('#newEmail').focus();
+//     return false;
+// }
+// if (newCustomer.customer_name != '' && newCustomer.customer_email != '') {
+//     $.ajax("/api/customer/new", {
+//         type: "POST",
+//         data: newCustomer,
+//         success: function (data) {
+//             console.log(data);
+//             if (data.result != 'invalid') {
+//                 alert("You've been added to our system!");
+//             }
+//         }
+//     }).then(function () {
+//         location.reload();
+//     });
+
+
+
+
+
+            $.ajax("/api/customer", {
                 type: "POST",
-                data: newCustomer,
-                success: function (data) {
-                    console.log(data);
-                    if (data.result != 'invalid') {
-                        alert("You've been added to our system!");
-                    }
-                }
+                data: newCustomer
             }).then(function () {
-                location.reload();
-            });
-        }
-
-
-
-
-    })
-
+                var table = $("<table>")
+                var name = $(`<tr><th>${$("#newCustomer").val().trim()}</th></tr>`)
+                var email = $(`<tr><th>${$("#newCustomer").val().trim()}</th></tr>`)
+                var orders = $("<tr><th> Orders</th></tr>")
+                var order_id = $(`<tr><td>${$("#newCustomer").val().trim()}</th></tr>`)
+                table.append(name)
+                table.append(email)
+                table.append(orders)
+                table.append(order_id)
+                $(".container").prepend(table)
+                //location.reload();
+            })
+        })
 
 
 

@@ -1,18 +1,30 @@
-html {
-    background-color: #7A3544;
+/* html {
+    background-color:rgb(151, 127, 127);
 }
-
 nav {
-    background-color: #671B2B;
-    color: white;
-    padding-left: 50px;
+    background-color: rgb(151, 127, 127);
+    color: white
+}
+.body{
+    background-color: rgb(151, 127, 127);
 }
 
+.row{
+    right: 50px;
+}
+
+.container{
+    color: white;
+    padding: 100px;
+    font: bold
+
+}
 
 .whole-store {
     position: relative; 
     top: 0px;
-    left: 0px;
+    left: 0px;  
+    shape-margin: 100px;
 }
 
 .front {
@@ -34,16 +46,22 @@ nav {
     position: relative; 
     top: 70px;
     left: 270px;
-}
+} */
 
-
+/* 
 .square {
     position: absolute;
-    width: 75px;
+    width: 40px;
     height: 75px;
-    background: #9B5766;
-    border-radius: 5%;
-}
+    background: rgb(250, 248, 114);
+    border-radius: 10%;
+} */
+
+#navigation,.navbar .navbar-default{
+    /* background-image: url("/public/assets/img/customer\ recognition.png"); */
+    background-color: red;
+  }
+
 
 .step_one, .new_customer, .returning_customer {
     position: absolute;
@@ -51,8 +69,9 @@ nav {
     height: 500px;
     top: 100px;
     left: 700px;
-    background: #9B5766;
+    background: rgb(245, 184, 184);
 }
+
 
 /*  */
 
@@ -60,71 +79,63 @@ nav {
 .host-table, .front-door, .table-1, .table-2, 
 .table-3, .table-4, .table-5, .table-6, .table-7, 
 .table-8, .table-9 {
-    color: #BA848F;
+    color: white;
     text-align: center;
+    font-display: times;
+    border:1px;
+    box-sizing: border-box
 }
 
-.host-table, .front-door{
-    background: #671B2B;
+/* .host-table, .front-door{
+    background: black;
 }
-
 
 .front-door {
     top: 100px;
-    left: 0px;
+    left:0px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
-
 .host-table {
     top: 150px;
     left: 100px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-}
-
-.table-1 {
+} */
+/* .table-1 {
     top: 0px;
     left: 0px;
 }
-
-
 .table-2 {
     top: 120px;
-    left: 0px;
+    left: 0px;  
 }
-
 .table-3 {
     top: 240px;
     left: 0px;
-
 }
-
 .table-4 {
     top: 0px;
     left: 120px;
 }
-
 .table-5 {
     top: 120px;
     left: 120px;
 }
-
 .table-6 {
     top: 240px;
-    left: 120px;
-}
-
+    left: 120px; */
+/* }
 .table-7 {
     top: 0px;
     left: 240px;
+    float: right;
+    
 }
-
 .table-8 {
     top: 120px;
     left: 240px;
 }
-
 .table-9 {
     top: 240px;
     left: 240px;
@@ -134,3 +145,4 @@ nav {
     font-size: 12px;
     color: red;
 }
+
