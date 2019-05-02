@@ -119,11 +119,13 @@
         <button class="back">[Go back]</button>
         <hr>
 
-        <form class="add-customer">
+        <form class="add-customer" id="registration_form">
             <label for="name">Name</label>
-            <input type="text" id="newCustomer"> <br>
+            <input type="text" class="form_text_" name="name" id="newCustomer">
+            <span class="error_form" id="name_error_message"></span> <br>
             <label for="email">Email</label>
-            <input type="text" id="newEmail">
+            <input type="text" class="form_text_" name="email" id="newEmail"> <br>
+            <span class="error_form" id="email_error_message"></span> <br>
             <select id="food">
                 {{#each order}}
                 <option value="{{id}}">{{order_name}}</option>
@@ -149,6 +151,13 @@
 
 
 <script>
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d
     // These divs won't show until you click on any table
     $(".step_one").hide();
     $(".new_customer").hide();
@@ -178,7 +187,6 @@
     // This just reloads the window into the correct page with the ID
 
     $(".search-customer").on("submit", function (event) {
-
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
@@ -211,6 +219,61 @@
         })
     })
 
+
+
+    $(function () {
+        $('#name_error_message').hide();
+        $('#email_error_message').hide();
+
+        var error_name = false;
+        var error_email = false;
+
+        $('#newCustomer').focusout(function () {
+            check_name();
+        });
+        $('#newEmail').focusout(function () {
+            check_email();
+        });
+
+        function check_name() {
+            var name_length = $('#newCustomer').val().length;
+
+            if (name_length < 1 || name_lenth > 20) {
+                $('#name_error_message').html('Enter valid name');
+                $('#name_error_message').show();
+                error_name = true;
+            } else {
+                $('#name_error_message').hide();
+            }
+        }
+
+        function check_email() {
+            var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+
+            if (pattern.test($('#newEmail').val())) {
+                $('#email_error_message').hide();
+            } else {
+                $('#email_error_message').html('Enter valid email');
+                $('#email_error_message').show();
+                error_email = true;
+            }
+        }
+
+        $('#registration_form').submit(function () {
+            error_name = false;
+            error_email = false;
+
+            check_name ();
+            check_email ();
+
+            if (error_name == false && error_email == false) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+
+    })
 
 
 </script>

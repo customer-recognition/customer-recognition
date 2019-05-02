@@ -1,8 +1,12 @@
+{{!-- This page has two possible outcomes, 
+the first being if the customer email was found --}}
 {{#if customer}}
 <form class="add-food">
     {{#each customer}}
     <h1>{{customer_name}}</h1>
-    <input type="submit" class="add" data-customer_id="{{id}}">
+
+    <input 
+    onclick="window.location='/'" type="submit" class="add" data-customer_id="{{id}}">
     {{/each}}
     <select id="food">
         {{#each order}}
@@ -10,7 +14,16 @@
         {{/each}}
     </select>
 </form>
+<<<<<<< HEAD
 <a href="/">[Go Back]</a>
+=======
+
+
+<a href="/">[Go Back]</a>
+
+
+{{!-- This being if the email was not found --}}
+>>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d
 {{else}}
 <h1>Email not found</h1>
 <form class="search-customer">
@@ -21,13 +34,22 @@
 <a href="/">[Go Back]</a>
 {{/if}}
 
+
+{{!-- This is the customers favorite food item --}}
 <div class="favorite-food">
-    <p>Customer's most ordered item is</p>
-    {{favorite_food}}
+    <p>Customer's most ordered item is:</p>
+Amount: {{quantity}} <br>
+Food Item: {{favorite_food}} 
+
 </div>
 
+
 <script>
+    // This is when the "submit" button is clicked with the food,
+    // you should be redirected back to the home page
     $(".add-food").on("submit", function (event) {
+        event.preventDefault();
+
         var customer_id = $(".add").data("customer_id");
         var order_id = $("#food").val().trim();
         var newOrder = {
@@ -38,14 +60,17 @@
             type: "PUT",
             data: newOrder
         }).then(function () {
+<<<<<<< HEAD
+=======
+            //alert("hello");
+>>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d
             window.location.href = "/";
         })
     });
 
+    // This is for when the email is not found so the user must
+    // input another valid one in order to move onto the next page
     $(".search-customer").on("submit", function (event) {
-        // This is if we want to get the "ID" instead of their customer name
-        // var customer_id = $(this).data("id");
-        // window.location.href = "/customer/" + customer_id;
         var customerEmail = $(".customer_email").val();
         window.location.href = "/customer/" + customerEmail;
         return false;

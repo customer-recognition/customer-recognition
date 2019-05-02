@@ -132,4 +132,13 @@ nav {
 .table-9 {
     top: 240px;
     left: 240px;
+<<<<<<< HEAD
 } */
+=======
+}
+
+.error_form {
+    font-size: 12px;
+    color: red;
+}
+>>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d
