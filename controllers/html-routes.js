@@ -24,16 +24,13 @@ module.exports = function (app) {
             }
         }).then((data) => {
             // console.log("data: ", data);
-            db.Order.findAll({}).then((data2) => {
-                var hbsObject = {
-                    customer: data,
-                    order: data2
-                }
-            }).then((data) => {
-                // console.log("data: ", data);
-                if (data != "") {
-                    var customer_id = data[0].dataValues.id;
-                }
+            if (data != "") {
+                var customer_id = data[0].dataValues.id;
+                console.log("customer id: ", customer_id);
+            } else {
+                res.render("customer")
+            }
+            if (customer_id) {
                 db.Order.findAll({}).then((data2) => {
                     db.Customer.findAll({
                         where: {
@@ -64,7 +61,7 @@ module.exports = function (app) {
                         res.render("customer", hbsObject);
                     })
                 })
-            });
+            }
         });
     }
 )}
