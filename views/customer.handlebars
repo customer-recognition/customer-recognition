@@ -33,14 +33,18 @@
 
 
 
+<div class="favorite-food">
+    <p>Customer's most ordered item is</p>
+    {{favorite_food}}
+</div>
+
 <script>
     function renderTable(user, newOrder){
         
     }
     $(".add-food").on("submit", function (event) {
         var customer_id = $(".add").data("customer_id");
-        alert(customer_id);
-        event.preventDefault();
+        var order_id = $("#food").val().trim();
         var newOrder = {
             CustomerId: customer_id,
             OrderId: $("#food").val().trim()
@@ -49,12 +53,12 @@
             type: "POST",
             data: newOrder
         }).then(function () {
-            window.location.href = "/"
+            alert("hello");
+            window.location.href = "/";
         })
     });
 
     $(".search-customer").on("submit", function (event) {
-
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
