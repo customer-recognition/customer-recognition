@@ -31,7 +31,7 @@
             OrderId: order_id
         };
         $.ajax("/api/customer", {
-            type: "POST",
+            type: "PUT",
             data: newOrder
         }).then(function () {
             window.location.href = "/"
