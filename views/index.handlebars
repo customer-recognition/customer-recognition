@@ -61,75 +61,29 @@
       </div>
     
   </div>
-{{!-- 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Section 1</h2>
-        <p>Some information for section 1</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Section 2</h2>
-        <p>Some information for section 2 </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Section 3</h2>
-        <p>Some information for section 1</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-    </div>
-
-    <hr>
-
-    <footer>
-      <p>&copy; My App 2015</p>
-    </footer>
-  </div> <!-- /container --> --}}
 
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
 
-{{!-- <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="/public/assets/img/customer recognition.jpg"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav> --}}
-
-{{!-- 
-<div class="container">
-    <nav class="">
-        <h1 class="font-weight-bold color: black">Client Recognition App</h1>
-        <h3 class="font-weight-normal color: black"> CRA </h3>
-    </nav> --}}
-
-{{!-- <div class="table">
-    <div class = "font-weight-bold color:black ">Welcome to our business~!</div>
-</div> --}}
-
 
     {{!-- STEP ONE QUESTION --}}
     <div class="step_one qfont">
       Is this a new customer or returning customer? <br><br><br>
         <div class="qfont2">
-          <button type="button" class="btn btn-link" id="new-customer">New Customer</button> <br><br><br>
-          <button type="button" class="btn btn-link" id="returning-customer">Returning Customer</button>
+          <button type="button" class="btn btn-primary" id="new-customer">New Customer</button> <br><br><br>
+          <button type="button" class="btn btn-primary" id="returning-customer">Returning Customer</button>
         </div>
     </div>
 
 
     {{!-- NEW CUSTOMER --}}
     <div class="new_customer">
-        <h1>Add Information</h1>
+        <h3>Add Information</h3>
         <button class="back">[Go back]</button>
         <hr>
-
+{{!-- if you type something in the label, the box disappears --}}
         <form class="add-customer">
             <label for="name">Name</label>
             <input type="text" id="newCustomer"> <br>
