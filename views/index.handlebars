@@ -4,18 +4,16 @@
 <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="google" value="notranslate">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="http://use.fontawesome.com/release/v5.9.8/js/all.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="google" value="notranslate">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <title>Customer Recognition App</title>
 </head>
 
-<body>
+<body> 
 
     <nav class="navbar navbar-inverse">
         <div class="container">
@@ -25,36 +23,34 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> --}}
-                </button>
-                <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+        </button>
+        <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-    <div class="jumbotron">
-        <div class="container">
-            <h2>Welcome to CRA!</h2>
-            <p>
-                This is a template for a simple marketing or informational website. It includes a large callout
-                called a jumbotron and three supporting pieces of content. Use it as a starting point to create
-                something more unique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatem
-                distinctio dicta dolorum voluptas, perferendis, architecto ducimus dignissimos hic asperiores error
-                aperiam fugit velit beatae accusamus, in sunt autem itaque?
+  <div class="jumbotron">
+    <div class="container">
+      <h2>Welcome to Customer Recognition App!</h2>
+      <h3 class="font:italics">CRA</h3>
+      <p>
+        This is a template for a simple marketing or informational website. It includes a large callout
+        called a jumbotron and three supporting pieces of content. Use it as a starting point to create
+        something more unique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatem distinctio dicta dolorum voluptas, perferendis, architecto ducimus dignissimos hic asperiores error aperiam fugit velit beatae accusamus, in sunt autem itaque?
 
-            </p>
-            <p><a class="table btn btn-primary btn-lg" href="#" role="button">Enter Customer &raquo;</a></p>
-        </div>
+      </p>
+      <p><a class="table btn btn-primary btn-lg" href="#" role="button">Enter Customer &raquo;</a></p>
     </div>
     {{!-- 
   <div class="container">
@@ -110,12 +106,12 @@
 </div> --}}
 
 
-{{!-- STEP ONE QUESTION --}}
-<div class="step_one">
-    Is this a new customer or returning customer? <br>
-    <button id="new-customer">New Customer</button> <br>
-    <button id="returning-customer">Returning Customer</button>
-</div>
+    {{!-- STEP ONE QUESTION --}}
+    <div class="step_one font-weight-bold">
+        Is this a new customer or returning customer? <br>
+        <button id="new-customer">New Customer</button> <br>
+        <button id="returning-customer">Returning Customer</button>
+    </div>
 
 
 {{!-- NEW CUSTOMER --}}

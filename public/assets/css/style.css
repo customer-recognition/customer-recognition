@@ -69,14 +69,21 @@ nav {
     height: 500px;
     top: 100px;
     left: 700px;
-    background: rgb(245, 184, 184);
+    background: rgb(226, 220, 220);
 }
 
 
+<<<<<<< HEAD
+=======
+.error_form {
+    font-size: 12px;
+    color: red;
+    
+>>>>>>> f42a24021d4cc4ab245b157ef03fbf3e19d4b610
 /*  */
 
 
-.host-table, .front-door, .table-1, .table-2, 
+/* .table-1, .table-2, 
 .table-3, .table-4, .table-5, .table-6, .table-7, 
 .table-8, .table-9 {
     color: white;
@@ -84,7 +91,7 @@ nav {
     font-display: times;
     border:1px;
     box-sizing: border-box
-}
+} */
 
 /* .host-table, .front-door{
     background: black;
@@ -101,8 +108,8 @@ nav {
     left: 100px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-} */
-/* .table-1 {
+}  
+.table-1 {
     top: 0px;
     left: 0px;
 }
@@ -145,4 +152,7 @@ nav {
     font-size: 12px;
     color: red;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f42a24021d4cc4ab245b157ef03fbf3e19d4b610

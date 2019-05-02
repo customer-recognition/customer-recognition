@@ -1,4 +1,4 @@
-  <!doctype html>
+<!doctype html>
 {{!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr"> --}}
 
 <head>
@@ -15,77 +15,70 @@
     <title>Customer Recognition App</title>
 </head>
 
-<body>  
-    
-    
+<body>
+
+
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                </button>
+
                 <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div>
+
+            <a class="btn btn-primary right" href="/" role="button">Back</a>
+
         </div>
     </nav>
 
 
-<div class="container">
-<div class="row">
-    <div class="column">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
 
+                {{!-- This page has two possible outcomes, 
+                the first being if the customer email was found --}}
+                {{#if customer}}
+                <form class="add-food">
+                    {{#each customer}}
+                    <h1>Welcome back, {{customer_name}}.</h1>
+
+                    <input type="submit" class="add" data-customer_id="{{id}}">
+                    {{/each}}
+
+
+                    <select id="food">
+                        {{#each order}}
+                        <option value="{{id}}">{{order_name}}</option>
+                        {{/each}}
+                    </select>
+                </form>
+
+
+                {{!-- This being if the email was not found --}}
+                {{else}}
+                <h1>Email not found</h1>
+                <form class="search-customer">
+                    <label for="">Search: </label> <br>
+                    <input type="text" class="customer_email">
+                    <input type="submit">
+                </form>
+                <a href="/">[Go Back]</a>
+                {{/if}}
+
+
+            </div>
+
+            <div class="col-4">
+                {{!-- This is the customers favorite food item --}}
+                <div class="favorite-food">
+                    <p>Customer Information:</p>
+                    Amount Ordered: {{quantity}} <br>
+                    Food Item: {{favorite_food}}
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
-
-</div>
-{{!-- This page has two possible outcomes, 
-the first being if the customer email was found --}}
-{{#if customer}}
-<form class="add-food">
-    {{#each customer}}
-    <h1>{{customer_name}}</h1>
-
-    <input 
-    onclick="window.location='/'" type="submit" class="add" data-customer_id="{{id}}">
-    {{/each}}
-    <select id="food">
-        {{#each order}}
-        <option value="{{id}}">{{order_name}}</option>
-        {{/each}}
-    </select>
-</form>
-
-
-<a href="/">[Go Back]</a>
-
-
-{{!-- This being if the email was not found --}}
-{{else}}
-<h1>Email not found</h1>
-<form class="search-customer">
-    <label for="">Search: </label> <br>
-    <input type="text" class="customer_email">
-    <input type="submit">
-</form>
-<a href="/">[Go Back]</a>
-{{/if}}
-
-
-{{!-- This is the customers favorite food item --}}
-<div class="favorite-food">
-    <p>Customer's most ordered item is:</p>
-Amount: {{quantity}} <br>
-Food Item: {{favorite_food}} 
-</div>
 
 
 
@@ -93,6 +86,11 @@ Food Item: {{favorite_food}}
 
 
 
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+
+</html>
 
 
 
