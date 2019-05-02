@@ -129,3 +129,8 @@ nav {
     top: 240px;
     left: 240px;
 }
+
+.error_form {
+    font-size: 12px;
+    color: red;
+}
