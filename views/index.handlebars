@@ -41,6 +41,8 @@
         <form class="add-customer">
             <label for="name">Name</label>
             <input type="text" id="newCustomer"> <br>
+            <label for="email">Email</label>
+            <input type="text" id="newEmail">
             <select id="food">
                 {{#each order}}
                 <option value="{{id}}">{{order_name}}</option>
@@ -120,6 +122,7 @@
         event.preventDefault();
         var newCustomer = {
             customer_name: $("#newCustomer").val().trim(),
+            customer_email: $("#newEmail").val().trim(),
             order_id: $("#food").val().trim()
         };
         $.ajax("/api/customer/new", {

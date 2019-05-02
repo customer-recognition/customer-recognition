@@ -4,13 +4,13 @@ module.exports = function (app) {
     app.post("/api/customer", function (req, res) {
         db.Customer.findAll({
             where: {
-                id: "1"
+                id: req.body.CustomerId
             },
             include: [{
                 model: db.Order,
                 through: {
                     where: {
-                        CustomerId: "1"
+                        CustomerId: req.body.CustomerId
                     }
                 }
             }]
@@ -23,7 +23,7 @@ module.exports = function (app) {
                 res.json(result);
             })
         }).catch((err) => {
-            console.log(err);
+            console.log(err.message);
             res.status(500);
         })
     })
@@ -32,7 +32,8 @@ module.exports = function (app) {
         // console.log(req.body.customer_name);
         // console.log(req.body.order_id);
         db.Customer.create({
-            customer_name: req.body.customer_name
+            customer_name: req.body.customer_name,
+            customer_email: req.body.customer_email
         }).then((result)=>{
             res.json(result);
             console.log(result.dataValues.id);
@@ -65,3 +66,4 @@ module.exports = function (app) {
     //     })
     // })
 }
+

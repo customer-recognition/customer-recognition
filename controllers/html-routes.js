@@ -17,7 +17,6 @@ module.exports = function (app) {
     });
 
     app.get("/customer/:search", function (req, res) {
-        console.log(req.params)
         db.Customer.findAll({
             where: {
                 customer_email: req.params.search
