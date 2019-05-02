@@ -84,7 +84,8 @@ nav {
 }
 .qfont {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    padding-inline-end: 50px
     
 };
 
