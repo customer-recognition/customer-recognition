@@ -39,7 +39,7 @@ router.get('/', function (req, res) {
   db.Customer.findAll({
     where: {
       name: req.body.name,
-      orders: req.body.orders,
+      // orders: req.body.orders,
     }
   }).then(function (customerData) {
     res.json(customerData)

@@ -10,9 +10,6 @@
         <div class="font-weight-bold front front-door">Front Door</div>
     </div>
 
-
-
-
     <div class="tables">
         <div class="table-5" style="background-color:rgb(151, 127, 127)"></div>
 
@@ -21,18 +18,17 @@
     </div>
 <div class= "container">
     <div class="row">
-        <div class="col-sm-1 table" style="background-color:rgb(180, 154, 39);"><br>T1</div>
+        <div class="col-sm-1 table font-weight-bold" style="background-color:rgb(180, 154, 39); color:white"><br>T1</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"></div>
-        <div class="col-sm-1 table" style="background-color:green;"><br>T2</div>
+        <div class="col-sm-1 table" style="background-color:green; color: white"><br>T2</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-        <div class="col-sm-1 table" style="background-color:blue;"><br>T3</div>
+        <div class="col-sm-1 table" style="background-color:blue; color:white"><br>T3</div>
         <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-        <div class="row">
-            <div class="col-sm-1 table" style="background-color:rgb(255, 0, 191);"><br>T4</div>
+            <div class="col-sm-1 table" style="background-color:rgb(255, 0, 191); color:white"><br>T4</div>
             <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-            <div class="col-sm-1 table" style="background-color:rgb(109, 95, 48);"><br>T5</div>
+            <div class="col-sm-1 table" style="background-color:rgb(109, 95, 48); color:white"><br>T5</div>
             <div class="col-sm-1" style="background-color:rgb(151, 127, 127);"><br></div>
-            <div class="col-sm-1 table" style="background-color:rgb(0, 238, 255);"><br>T6</div>
+            <div class="col-sm-1 table" style="background-color:rgb(0, 238, 255); color:white"><br>T6</div>
     </div>
 </div>
 
@@ -94,6 +90,8 @@
     </div>
 </div>
 
+
+
 <!-- Compressed CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
     integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
@@ -153,11 +151,21 @@
             customer_email: $("#newEmail").val().trim(),
             order_id: $("#food").val().trim()
         };
-        $.ajax("/api/customer/new", {
+        $.ajax("/api/customer", {
             type: "POST",
             data: newCustomer
         }).then(function () {
-            location.reload();
+            var table = $("<table>")
+                var name = $(`<tr><th>${$("#newCustomer").val().trim()}</th></tr>`)
+                var email= $(`<tr><th>${$("#newCustomer").val().trim()}</th></tr>`)
+                var orders=$("<tr><th> Orders</th></tr>")
+                var order_id= $(`<tr><td>${$("#newCustomer").val().trim()}</th></tr>`)
+                table.append(name)
+                table.append(email)
+                table.append(orders)
+                table.append(order_id)
+                $(".container").prepend(table)
+            //location.reload();
         })
     })
 
