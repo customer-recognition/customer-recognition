@@ -25,7 +25,7 @@
                 <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
             </div>
 
-            <a class="btn btn-primary right" href="/" role="button">Back</a>
+            <a class="btn btn-primary float-right" href="/" role="button">Back</a>
 
         </div>
     </nav>
@@ -33,14 +33,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col">
 
                 {{!-- This page has two possible outcomes, 
                 the first being if the customer email was found --}}
                 {{#if customer}}
                 <form class="add-food">
                     {{#each customer}}
-                    <h1>Welcome back, {{customer_name}}.</h1>
+                    <h1 class="float-left">Welcome back, {{customer_name}}.</h1>
 
                     <input type="submit" class="add" data-customer_id="{{id}}">
                     {{/each}}
@@ -54,6 +54,13 @@
                 </form>
 
 
+                {{!-- This is the customers favorite food item --}}
+                <div class="favorite-food">
+                    <h1 class="display-4">Customer Information:</h1>
+                    Amount Ordered: {{quantity}} <br>
+                    Food Item: {{favorite_food}}
+                </div>
+
                 {{!-- This being if the email was not found --}}
                 {{else}}
                 <h1>Email not found</h1>
@@ -62,21 +69,14 @@
                     <input type="text" class="customer_email">
                     <input type="submit">
                 </form>
-                <a href="/">[Go Back]</a>
                 {{/if}}
 
 
             </div>
 
-            <div class="col-4">
-                {{!-- This is the customers favorite food item --}}
-                <div class="favorite-food">
-                    <p>Customer Information:</p>
-                    Amount Ordered: {{quantity}} <br>
-                    Food Item: {{favorite_food}}
-                </div>
 
-            </div>
+
+
         </div>
     </div>
 
