@@ -91,10 +91,5 @@ module.exports = function (app) {
                 })
             }
         });
-<<<<<<< HEAD
-    });
-};
-=======
     }
 )}
->>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d

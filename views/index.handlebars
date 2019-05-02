@@ -1,31 +1,33 @@
 
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+{{!-- <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr"> --}}
 
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="google" value="notranslate">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="http://use.fontawesome.com/release/v5.9.8/js/all.js"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
   <title>Customer Recognition App</title>
 </head>
 
 <body>
-{{!-- 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+
+  <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        {{!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> --}}
         </button>
-        <a class="navbar-brand" href="#">My App</a>
+        <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
@@ -43,16 +45,17 @@
 
   <div class="jumbotron">
     <div class="container">
-      <h1>Hello, world!</h1>
+      <h2>Welcome to CRA!</h2>
       <p>
         This is a template for a simple marketing or informational website. It includes a large callout
         called a jumbotron and three supporting pieces of content. Use it as a starting point to create
-        something more unique.
+        something more unique. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi voluptatem distinctio dicta dolorum voluptas, perferendis, architecto ducimus dignissimos hic asperiores error aperiam fugit velit beatae accusamus, in sunt autem itaque?
+
       </p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <p><a class="table btn btn-primary btn-lg" href="#" role="button">Enter Customer &raquo;</a></p>
     </div>
   </div>
-
+{{!-- 
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -100,9 +103,9 @@
         <h3 class="font-weight-normal color: black"> CRA </h3>
     </nav> --}}
 
-<div class="table">
+{{!-- <div class="table">
     <div class = "font-weight-bold color:black ">Welcome to our business~!</div>
-</div>
+</div> --}}
 
 
     {{!-- STEP ONE QUESTION --}}
@@ -119,13 +122,11 @@
         <button class="back">[Go back]</button>
         <hr>
 
-        <form class="add-customer" id="registration_form">
+        <form class="add-customer">
             <label for="name">Name</label>
-            <input type="text" class="form_text_" name="name" id="newCustomer">
-            <span class="error_form" id="name_error_message"></span> <br>
+            <input type="text" id="newCustomer"> <br>
             <label for="email">Email</label>
-            <input type="text" class="form_text_" name="email" id="newEmail"> <br>
-            <span class="error_form" id="email_error_message"></span> <br>
+            <input type="text" id="newEmail">
             <select id="food">
                 {{#each order}}
                 <option value="{{id}}">{{order_name}}</option>
@@ -151,13 +152,6 @@
 
 
 <script>
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 3c91c76ac1fb662721ebe4f8dd434593bb66b07d
     // These divs won't show until you click on any table
     $(".step_one").hide();
     $(".new_customer").hide();
@@ -187,6 +181,7 @@
     // This just reloads the window into the correct page with the ID
 
     $(".search-customer").on("submit", function (event) {
+
         // This is if we want to get the "ID" instead of their customer name
         // var customer_id = $(this).data("id");
         // window.location.href = "/customer/" + customer_id;
@@ -219,61 +214,6 @@
         })
     })
 
-
-
-    $(function () {
-        $('#name_error_message').hide();
-        $('#email_error_message').hide();
-
-        var error_name = false;
-        var error_email = false;
-
-        $('#newCustomer').focusout(function () {
-            check_name();
-        });
-        $('#newEmail').focusout(function () {
-            check_email();
-        });
-
-        function check_name() {
-            var name_length = $('#newCustomer').val().length;
-
-            if (name_length < 1 || name_lenth > 20) {
-                $('#name_error_message').html('Enter valid name');
-                $('#name_error_message').show();
-                error_name = true;
-            } else {
-                $('#name_error_message').hide();
-            }
-        }
-
-        function check_email() {
-            var pattern = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
-
-            if (pattern.test($('#newEmail').val())) {
-                $('#email_error_message').hide();
-            } else {
-                $('#email_error_message').html('Enter valid email');
-                $('#email_error_message').show();
-                error_email = true;
-            }
-        }
-
-        $('#registration_form').submit(function () {
-            error_name = false;
-            error_email = false;
-
-            check_name ();
-            check_email ();
-
-            if (error_name == false && error_email == false) {
-                return true;
-            } else {
-                return false;
-            }
-        })
-
-    })
 
 
 </script>
