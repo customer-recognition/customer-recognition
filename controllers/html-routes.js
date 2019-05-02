@@ -29,9 +29,6 @@ app.get("/customer/:search", function (req, res) {
                 customer: data,
                 order: data2
             }
-<<<<<<< HEAD
-                res.render("customer", hbsObject);
-=======
         }).then((data) => {
             // console.log("data: ", data);
             if (data != ""){
@@ -66,7 +63,6 @@ app.get("/customer/:search", function (req, res) {
                     console.log(wtf);
                     res.render("customer", hbsObject);
                 })
->>>>>>> ac73413b8aaba705e4af6e89c596292550aae900
             })
         });
     });
