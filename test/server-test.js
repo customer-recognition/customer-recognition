@@ -22,7 +22,11 @@ describe('Server', () => {
             .send({ 
                 customer_name: "test",
                 OrderId: "4"
+<<<<<<< HEAD
             })
+=======
+             })
+>>>>>>> parent of e6e17ec... testestest
             .end(function (err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
