@@ -81,6 +81,8 @@ nav {
     top: 100px;
     left: 700px;
     background: rgb(226, 220, 220);
+    border: 10px;
+    border-color: grey
 }
 .qfont {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
