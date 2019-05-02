@@ -41,47 +41,24 @@ module.exports = function (app) {
             where: {
                 customer_email: req.body.customer_email
             }
-        }).then((result)=>{
-            if (result == ""){
-                db.Customer.create({
-                    customer_name: req.body.customer_name,
-                    customer_email: req.body.customer_email
+        }).then((result) => {
+            db.Customer.create({
+                customer_name: req.body.customer_name,
+                customer_email: req.body.customer_email
+            }).then((result) => {
+                db.Customer_order.create({
+                    CustomerId: result.dataValues.id,
+                    OrderId: req.body.order_id
                 }).then((result) => {
-                    db.Customer_order.create({
-                        CustomerId: result.dataValues.id,
-                        OrderId: req.body.order_id
-                    }).then((result) => {
-                        res.json(result);
-                    }).catch((err) => {
-                        console.log(err);
-                        res.status(500);
-                    })
+                    res.json(result);
                 }).catch((err) => {
                     console.log(err);
                     res.status(500);
                 })
-            } else {
-                res.json(result);
-            }
+            }).catch((err) => {
+                console.log(err);
+                res.status(500);
+            })
         })
-        // db.Customer.create({
-        //     customer_name: req.body.customer_name
-        // }).then((result)=>{
-        //     res.json(result);
-        //     console.log(result.dataValues.id);
-
-        //     db.Customer_order.create({
-        //         CustomerId: result.dataValues.id,
-        //         OrderId: req.body.order_id
-        //     }).then((result)=>{
-        //         res.json(result);
-        //     }).catch((err)=>{
-        //         console.log(err);
-        //         res.status(500);
-        //     })
-        // }).catch((err)=>{
-        //     console.log(err);
-        //     res.status(500);
-        // })
     })
 }
