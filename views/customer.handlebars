@@ -11,6 +11,16 @@
     </select>
 </form>
 <a href="/">[Go Back]</a>
+
+<hr>
+
+Items that have been ordered: <br>
+{{#each customer}}
+{{order_name}}
+{{/each}}
+
+
+
 {{else}}
 <h1>Email not found</h1>
 <form class="search-customer">
