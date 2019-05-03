@@ -1,39 +1,39 @@
-'use strict';
+// 'use strict';
 
-var chai = require('chai');
-var expect = chai.expect;
-var chaiHttp = require('chai-http');
-chai.use(chaiHttp);
+// var chai = require('chai');
+// var expect = chai.expect;
+// var chaiHttp = require('chai-http');
+// chai.use(chaiHttp);
 
 
 
-// Do i need this yet?
-// var assert = require('mocha');
+// // Do i need this yet?
+// // var assert = require('mocha');
 
-// var db = require('../controllers');
+// // var db = require('../controllers');
 
-describe('Server', () => {
+// describe('Server', () => {
 
-    it('Should show server working', () => {
-        return require('../server.js').then(function (server) {
-            console.log("server made");
-            return chai.request(server)
-            .post('/api/customer/new')
-            .send({ 
-                customer_name: "test",
-                OrderId: "4"
-<<<<<<< HEAD
-            })
-=======
-             })
->>>>>>> parent of e6e17ec... testestest
-            .end(function (err, res) {
-                expect(err).to.be.null;
-                expect(res).to.have.status(200);
-            });
-        }).catch(function (err) {
-            console.log(err);
-            throw err;
-        })
-    })
-})
+//     it('Should show server working', () => {
+//         return require('../server.js').then(function (server) {
+//             console.log("server made");
+//             return chai.request(server)
+//             .post('/api/customer/new')
+//             .send({ 
+//                 customer_name: "test",
+//                 OrderId: "4"
+// <<<<<<< HEAD
+//             })
+// =======
+//              })
+// >>>>>>> parent of e6e17ec... testestest
+//             .end(function (err, res) {
+//                 expect(err).to.be.null;
+//                 expect(res).to.have.status(200);
+//             });
+//         }).catch(function (err) {
+//             console.log(err);
+//             throw err;
+//         })
+//     })
+// })

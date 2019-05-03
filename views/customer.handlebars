@@ -17,12 +17,12 @@
 
 <body>
 
-
+ 
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand font-weight-bold float-left" href="?#">Customer Recognition App</a>
+                <a class="navbar-brand font-weight-bold float-left" href="/">Customer Recognition App</a>
             </div>
 
             <a class="btn btn-primary float-right" href="/" role="button">Back</a>
@@ -57,8 +57,8 @@
                 {{!-- This is the customers favorite food item --}}
                 <div class="favorite-food">
                     <h1 class="display-4">Customer Information:</h1>
-                    Amount Ordered: {{quantity}} <br>
-                    Food Item: {{favorite_food}}
+                    Most ordered item: {{favorite_food}} <br>
+                    Ordered {{quantity}} times
                 </div>
 
                 {{!-- This being if the email was not found --}}
@@ -70,34 +70,13 @@
                     <input type="submit">
                 </form>
                 {{/if}}
-
-
             </div>
-
-
-
-
         </div>
     </div>
-
-
-
-
-
-
-
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
 <script>
     // This is when the "submit" button is clicked with the food,
     // you should be redirected back to the home page
